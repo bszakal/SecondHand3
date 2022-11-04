@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>912520576407-l47lqmkorem824tfju7e6r4p72sh78eg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.912520576407-l47lqmkorem824tfju7e6r4p72sh78eg</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDAGZSroX9Bus5EVCy5wTgt07HkqLvEBZ8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>912520576407</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>me.szakal.benjamin.SecondHand3</string>
+	<key>PROJECT_ID</key>
+	<string>testlogin-zac</string>
+	<key>STORAGE_BUCKET</key>
+	<string>testlogin-zac.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:912520576407:ios:fd6aef2c58cf7087e198d2</string>
+</dict>
+</plist>
