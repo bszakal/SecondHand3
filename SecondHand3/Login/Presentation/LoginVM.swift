@@ -17,9 +17,9 @@ import SwiftUI
     }
     
     @Inject var logger: loggerProtocol
-    @Published var correctProvider: CorrectProvider?
     
-    @Published var emailSignInErrornotification = ""
+    @Published var correctProvider: CorrectProvider?
+    @Published private(set) var emailSignInErrornotification = ""
     
     func SignInFacebook() {
         logger.SignInFederated(provider: Logger.FederatedProvider.Facebook) { email, provider, err in

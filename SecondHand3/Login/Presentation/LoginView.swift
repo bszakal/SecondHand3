@@ -22,7 +22,7 @@ struct LoginView: View {
     @State private var showRegisterView = false
    
     var body: some View {
-        
+
         ZStack{
            
                 titleView
@@ -45,6 +45,7 @@ struct LoginView: View {
             }
             .padding(.horizontal)
         }
+        .ignoresSafeArea(.keyboard, edges:.bottom)
         .sheet(item: $loginVM.correctProvider) { provider in
             SignInWithCorrectProviderView(correctProvider: provider)
                 .presentationDetents([.medium])
@@ -88,7 +89,11 @@ struct LoginView: View {
             showRegisterView = true
         }, label: {
             Text("Register")
+                .fontWeight(.bold)
+                .underline()
                 .padding(.leading, 5)
+                .padding(.top, 5)
+                .foregroundColor(.primary)
         })
             .padding(.bottom, 10)
     }
@@ -141,9 +146,13 @@ struct LoginView: View {
              Group{
                  if showPassword {
                      TextField("Password", text: $password)
+                         .autocorrectionDisabled()
+                         .textInputAutocapitalization(.never)
                      
                  } else {
                      SecureField("Password", text: $password)
+                         .autocorrectionDisabled()
+                         .textInputAutocapitalization(.never)
                  }
              }
              
@@ -178,10 +187,10 @@ struct LoginView: View {
              .font(.title2)
              .fontWeight(.semibold)
              .frame(maxWidth: .infinity, maxHeight: 60)
-             .background(.pink.opacity(0.8))
+             .background(.black.opacity(0.7))
              .clipShape((RoundedRectangle(cornerRadius: 10)))
      }
-     .disabled(email.count < 5 || password.count < 5)
+     //.disabled(email.count < 5 || password.count < 5)
 
         }
     

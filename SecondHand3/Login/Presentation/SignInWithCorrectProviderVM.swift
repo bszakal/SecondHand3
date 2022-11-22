@@ -11,7 +11,7 @@ import SwiftUI
     
     
     @Inject var logger: loggerProtocol
-    @Published var errorDisplayMessage = ""
+    @Published private(set) var errorDisplayMessage = ""
     
     func SignInFacebook() {
         logger.SignInFederated(provider: Logger.FederatedProvider.Facebook) { email, provider, err in

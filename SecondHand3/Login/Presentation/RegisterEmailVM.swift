@@ -11,7 +11,7 @@ class RegisterEmailVM: ObservableObject {
     
     @Inject var logger: loggerProtocol
     
-    @Published var notification = ""
+    @Published private(set) var notification = ""
     
     
     func registerEmail(email: String, password: String) {

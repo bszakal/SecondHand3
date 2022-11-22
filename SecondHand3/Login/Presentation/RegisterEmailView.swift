@@ -107,7 +107,7 @@ struct RegisterEmailView: View {
                     .font(.title2)
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity, maxHeight: 60)
-                    .background(.pink.opacity(0.8))
+                    .background(.black.opacity(0.7))
                     .clipShape((RoundedRectangle(cornerRadius: 10)))
             }
             .disabled(email.count < 5 || password.count < 5)

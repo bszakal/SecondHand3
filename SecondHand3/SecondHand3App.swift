@@ -16,7 +16,7 @@ struct SecondHand3App: App {
     @StateObject var loginState = LoginState()
     var body: some Scene {
         WindowGroup {
-            TestView()
+            MainTabView()
                 .environmentObject(loginState)
         }
     }

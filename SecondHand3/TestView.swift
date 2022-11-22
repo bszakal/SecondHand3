@@ -12,31 +12,27 @@ struct TestView: View {
     @Inject var logger: loggerProtocol
     @State private var showLoginView = false
     var body: some View {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-//            .onAppear{
-//                if loginState.isLoggedIn {
-//                    AnnounceView()
-//                } else {
-//                    showLoginView = true
-//                }
-//            }
-//        Button("SignOut") {
-//            logger.logOut()
+
+        MainTabView()
+
+//        if loginState.isLoggedIn {
+//            MainTabView()
+//            //listOfCategoriesView()
+//            //AnnounceView()
+//            //CreateAnnounceStartView()
+//            //FavouriteView()
+//            //MyAccountView()
+////            NavigationStack{
+////                UserProfileView()
+////            }
+//            //MessagesView()
+//        } else {
+//            //LoginView()
 //        }
-//            .sheet(isPresented: $showLoginView) {
-//                LoginView()
-//
-//            }
-        
-        if loginState.isLoggedIn {
-            MainTabView()
-            //listOfCategoriesView()
-            //AnnounceView()
-        } else {
-            LoginView()
-        }
     }
 }
+
+
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
