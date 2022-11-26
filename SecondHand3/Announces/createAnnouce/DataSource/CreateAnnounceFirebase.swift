@@ -15,57 +15,24 @@ protocol CreateAnnounceFirebaseProtocol {
 }
 
 
-class CreateAnnounceFirebase: CreateAnnounceFirebaseProtocol {
+class CreateAnnounceFirebase: CreateAnnounceFirebaseProtocol, FirebaseGeneralQuery, FirebaseStorageGeneralQuery {
     
     enum loginError: Error {
         case userNotLoggedIn
     }
     
     func uploadImageStorage(photosData: [Data]) async -> Result<[String], Error> {
-        
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-        let collection = storageRef.child("imagesAnnounces")
-        
-        var urls = [String]()
-        
-        for photo in photosData {
-            
-            let photoref = collection.child(UUID().uuidString + ".jpeg")
-            
-            do{
-                let _ = try await photoref.putDataAsync(photo)
-                let url = try await photoref.downloadURL()
-                let urlStr = url.absoluteString
-                urls.append(urlStr)
-                
-            } catch{
-                print(error.localizedDescription)
-                return .failure(error)
-                
-            }
-        }
-            return .success(urls)
-        
+        await CreateAnnounceFirebase.uploadData(collectionName: "imagesAnnounces", dataArray: photosData)
     }
   
     func getuserUID() async ->Result<String, Error> {
         
-        let userUID = Auth.auth().currentUser?.uid
+        let userUID = await CreateAnnounceFirebase.getuserID()
         return userUID != nil ? .success(userUID!) : .failure(loginError.userNotLoggedIn)
 
     }
     
     func addAnnounce(announce: Announce) {
-        
-        let firestore = Firestore.firestore()
-        let collection = firestore.collection("Announces")
-        
-        do{
-            let _ = try collection.addDocument(from: announce)
-        } catch {
-            print(error)
-        }
-        
+        CreateAnnounceFirebase.addCodableTypeToCollectionIdFirebaseGenerated(type: announce, collection: "Announces")
     }
 }

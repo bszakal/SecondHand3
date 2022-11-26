@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchFilterView: View {
     
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var loginState: LoginState
     @StateObject var searchfilterVM = SearchFilterVM()
     
     @FocusState private var searchBarFocus

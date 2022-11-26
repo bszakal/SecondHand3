@@ -10,6 +10,8 @@ import SwiftUI
 struct selectionCategory: View {
     @ObservedObject var createAnnounceVM: CreateAnnounceVM
     @Binding var selectedCategory: String
+    let viewSize: (CGSize) ->Void
+    
    var body: some View {
         
         VStack{
@@ -27,11 +29,20 @@ struct selectionCategory: View {
                     }
             }
         }
+        .overlay(
+            GeometryReader{ geo in
+                Color.clear.onAppear{
+                    withAnimation{
+                        viewSize(geo.frame(in: .local).size)
+                    }
+                }
+            }
+        )
     }
 }
 
 struct selectionCategory_Previews: PreviewProvider {
     static var previews: some View {
-        selectionCategory(createAnnounceVM: CreateAnnounceVM(), selectedCategory: .constant(""))
+        selectionCategory(createAnnounceVM: CreateAnnounceVM(), selectedCategory: .constant(""), viewSize: {viewSize in })
     }
 }

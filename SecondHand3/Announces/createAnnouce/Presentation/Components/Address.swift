@@ -13,6 +13,7 @@ struct SelectionAddress: View {
     @Binding var postCode: String
     @Binding var city: String
     @Binding var deliveryType: String
+    let viewSize: (CGSize) ->Void
     
     var body: some View{
         VStack{
@@ -45,11 +46,20 @@ struct SelectionAddress: View {
             .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1).foregroundColor(.primary).opacity(0.1))
         }
         .padding(.horizontal)
+        .overlay(
+            GeometryReader{ geo in
+                Color.clear.onAppear{
+                    withAnimation{
+                        viewSize(geo.frame(in: .local).size)
+                    }
+                }
+            }
+        ) 
     }
 }
 
 struct SelectionAddress_Previews: PreviewProvider {
     static var previews: some View {
-        SelectionAddress(addressLine: .constant(""), postCode: .constant(""), city: .constant(""), deliveryType: .constant(""))
+        SelectionAddress(addressLine: .constant(""), postCode: .constant(""), city: .constant(""), deliveryType: .constant(""), viewSize:{ viewSize in })
     }
 }

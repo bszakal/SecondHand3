@@ -26,7 +26,6 @@ protocol loggerProtocol {
 class Logger: loggerProtocol {
     
     @Published private(set) var isSignedIn = false
-
     var IsSignedInPublished: Published<Bool>.Publisher{ $isSignedIn}
     
     

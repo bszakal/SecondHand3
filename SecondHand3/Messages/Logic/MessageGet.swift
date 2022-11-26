@@ -18,8 +18,6 @@ protocol MessageGetProtocol {
 
 class MessageGet: MessageGetProtocol {
     
-//    @Published var messages = [Message]()
-//    var messPublisher: Published<[Message]>.Publisher{$messages}
     
     @Published private(set) var chats = [Chat]()
     var chatPublisher: Published<[Chat]>.Publisher{$chats}
@@ -80,7 +78,6 @@ class MessageGet: MessageGetProtocol {
     func getMessagesForUser2() {
         
         firebaseMEssage.getMessages2 { messages, err in
-            
             
             if let error = err {
                 print(error.localizedDescription)

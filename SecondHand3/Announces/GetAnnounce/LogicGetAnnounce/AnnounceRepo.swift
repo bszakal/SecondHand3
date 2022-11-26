@@ -5,7 +5,6 @@
 //  Created by Benjamin Szakal on 01/11/22.
 //
 import Combine
-import FirebaseFirestore
 import Foundation
 
 protocol AnnounceRepoProtocol{
@@ -22,16 +21,16 @@ class AnnounceRepo: AnnounceRepoProtocol {
     @Published private(set) var announces = [Announce]()
     var annoncePublisher: Published<[Announce]>.Publisher{$announces}
     
-    private var lastDocQuery: QueryDocumentSnapshot?
+    private var lastDocLastUpdateTime: (Date, String)?
     
     func checkForNewAnnounces() async {
         
-        let resuls = await firebaseAnnouce.getAnnounces2(lastDocQuery: nil, limit: 6)
+        let resuls = await firebaseAnnouce.getAnnounces(lastDocQuery: nil, limit: 6)
         
         switch resuls {
         case .success(let success):
             if isThereNewAnnounces(announces: success.0) {
-                self.lastDocQuery = success.1
+                self.lastDocLastUpdateTime = success.1
                 self.announces = success.0
             }
         case .failure(let failure):
@@ -43,14 +42,19 @@ class AnnounceRepo: AnnounceRepoProtocol {
     
     func checkForMoreAnnounces() async {
         
-        let resuls = await firebaseAnnouce.getAnnounces2(lastDocQuery: lastDocQuery, limit: 6)
+        let resuls = await firebaseAnnouce.getAnnounces(lastDocQuery: lastDocLastUpdateTime, limit: 6)
         
         switch resuls {
         case .success(let success):
 
-            self.lastDocQuery = success.1
-            self.announces.append(contentsOf: success.0)
-            
+            self.lastDocLastUpdateTime = success.1
+            for succes in success.0 {
+                //somtimes Firebase include last doc from previous query instead of starting after so adding extra check to make sure no dupe added
+                if self.announces.contains(where: {$0.id == succes.id}) {
+                } else {
+                    self.announces.append(succes)
+                }
+            }
         case .failure(let failure):
             print(failure.localizedDescription)
            return
@@ -63,7 +67,7 @@ class AnnounceRepo: AnnounceRepoProtocol {
     }
     
     func getAnnouncesFiltered(text: String?, priceStart: Double, priceEnd: Double, category: String?, startDate: Date?, myAnnounceOnly: Bool, announceID: String?) async ->Result<[Announce], Error>{
-        let result = await firebaseAnnouce.getAnnounces2(lastDocQuery: nil, limit: 1000)
+        let result = await firebaseAnnouce.getAnnounces(lastDocQuery: nil, limit: 1000)
         
         var tempResult = [Announce]()
         switch result {

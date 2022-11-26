@@ -28,16 +28,9 @@ class AnnounceDetailedVM: ObservableObject {
         }
     }
     
-    func addToFavourite(announce: Announce) {
-        Task{
-            await favouriteDomaine.addAnnounceToFavorite(announceID: announce.id ?? "")
-            isAFavourite(announce: announce)
-        }
-    }
-    
-    func removeFromFavourite(announce: Announce) {
+    func AddOrRemoveFromFavourite(announce: Announce){
         Task {
-            await favouriteDomaine.removeFromFavourite(announce:announce)
+            await favouriteDomaine.AddOrRemoveFromFavourite(announce:announce)
             isAFavourite(announce: announce)
         }
     }

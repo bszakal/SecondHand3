@@ -12,6 +12,7 @@ struct SelectionTitle: View {
     @Binding var title: String
     @Binding var descrpition: String
     @Binding var price: Double?
+    let viewSize: (CGSize) ->Void
     
     var body: some View{
         VStack{
@@ -33,19 +34,25 @@ struct SelectionTitle: View {
                     .frame(height: 150)
                     .foregroundColor(.primary)
                     .padding()
-                    
-                
             }
             .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1).foregroundColor(.primary).opacity(0.1))
             
         }
-
         .padding(.horizontal)
+        .overlay(
+            GeometryReader{ geo in
+                Color.clear.onAppear{
+                    withAnimation{
+                        viewSize(geo.frame(in: .local).size)
+                    }
+                }
+            }
+        )
     }
 }
 
 struct SelectionTitle_Previews: PreviewProvider {
     static var previews: some View {
-        SelectionTitle(title: .constant(""), descrpition: .constant(""), price: .constant(nil))
+        SelectionTitle(title: .constant(""), descrpition: .constant(""), price: .constant(nil), viewSize: {viewSize in })
     }
 }

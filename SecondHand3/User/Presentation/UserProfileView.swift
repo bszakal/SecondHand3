@@ -30,21 +30,8 @@ struct UserProfileView: View {
         ScrollView{
             VStack(alignment:.leading, spacing:30){
                 VStack{
-                    ZStack(alignment:.bottomTrailing){
-                        imageView
-                            .clipShape(Circle())
-                        Button {
-                            showPictureConfirmationDialogue = true
-                        } label: {
-                            Image(systemName: "camera.fill")
-                                .foregroundColor(.primary)
-                        }
-
-                    }
-                    .frame(width: 200, height: 200)
-                    .padding(.bottom,30)
-                    
-                names
+                    profilePictureView
+                    names
                 }
                 dividerCustom
                 email
@@ -55,53 +42,53 @@ struct UserProfileView: View {
         }
         .navigationTitle("Profile")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar(content: {
-            Button {
-                userProfileVM.saveProfile(img: newPhotoUI)
-                dismiss()
-            } label: {
-                Text("Save")
-                    .fontWeight(.semibold)
-                    .underline()
-                    .foregroundColor(.primary)
-                    .padding()
-                    
-            }
-        })
+        .toolbar(content: {saveButton})
         
-        .onAppear{
-            userProfileVM.getUserProfileOrCreateNewOne()
-            // to delete, just to load an example to buil the view
-            //userProfileVM.userProfile = UserProfile.example
-        }
+        .onAppear{ userProfileVM.getUserProfileOrPrepareNewOne() }
+        
         .sheet(isPresented: $showPhotoLibrary, content: {
-            ImagePicker {img in
-                self.newPhotoUI = img
-                showPhotoLibrary = false
-            }
-            
+            ImagePicker {img in self.newPhotoUI = img}
         })
         .sheet(isPresented: $showCamera, content: {
-            Camera {img in
-                self.newPhotoUI = img
-                showCamera = false
-            }
-            
+            Camera {img in self.newPhotoUI = img}
         })
+        
         .confirmationDialog("Upload photo", isPresented: $showPictureConfirmationDialogue, actions: {
-            Button {
-                self.showPhotoLibrary = true
-            } label: {
-                Text("Photo Library")
-            }
-            Button {
-                self.showCamera = true
-            } label: {
-                Text("Camera")
-            }
+            Button("Photo Library") { self.showPhotoLibrary = true }
+            Button("Camera") { self.showCamera = true }
 
         })
         
+    }
+    
+    var profilePictureView: some View {
+        ZStack(alignment:.bottomTrailing){
+            imageView
+                .clipShape(Circle())
+            Button {
+                showPictureConfirmationDialogue = true
+            } label: {
+                Image(systemName: "camera.fill")
+                    .foregroundColor(.primary)
+            }
+
+        }
+        .frame(width: 200, height: 200)
+        .padding(.bottom,30)
+    }
+    
+    var saveButton: some View {
+        Button {
+            userProfileVM.saveProfile(img: newPhotoUI)
+            dismiss()
+        } label: {
+            Text("Save")
+                .fontWeight(.semibold)
+                .underline()
+                .foregroundColor(.primary)
+                .padding()
+                
+        }
     }
     
     var imageView: some View {
@@ -126,40 +113,16 @@ struct UserProfileView: View {
     
     var names: some View {
         Group{
-            
-            VStack(alignment:.leading, spacing: 0){
-                Text("Pseudo")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                TextField("Pseudo", text: $userProfileVM.pseudo)
-                    .autocorrectionDisabled()
-            }
-            VStack(alignment:.leading, spacing: 0){
-                Text("First name")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                TextField("First name", text: $userProfileVM.firstName)
-                    .autocorrectionDisabled()
-            }
-            VStack(alignment:.leading, spacing: 0){
-                Text("Last name")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                TextField("Last name", text: $userProfileVM.lastName)
-                    .autocorrectionDisabled()
-            }
-            
-            
+            textfieldNamesView(title: "Pseudo", text: $userProfileVM.pseudo)
+            textfieldNamesView(title: "First name", text: $userProfileVM.firstName)
+            textfieldNamesView(title: "Last name", text: $userProfileVM.lastName)
         }
-        .padding(7)
-        .background(RoundedRectangle(cornerRadius: 10).stroke().foregroundColor(.secondary))
     }
     
     var email: some View {
         VStack(alignment:.leading, spacing: 4){
             Text("Email")
             Text(userProfileVM.emailAddress)
-            //.font(.caption)
                 .foregroundColor(.secondary)
         }
     }
@@ -182,10 +145,25 @@ struct UserProfileView: View {
             }
             
             TextField("Address", text: $userProfileVM.address)
-            //.font(.caption)
                 .foregroundColor(.secondary)
                 .disabled(addressEditingDisabled)
         }
+    }
+}
+
+struct textfieldNamesView: View {
+    let title: String
+    @Binding var text: String
+    var body: some View{
+        VStack(alignment:.leading, spacing: 0){
+            Text(title)
+                .font(.caption)
+                .foregroundColor(.secondary)
+            TextField(title, text: $text)
+                .autocorrectionDisabled()
+        }
+        .padding(7)
+        .background(RoundedRectangle(cornerRadius: 10).stroke().foregroundColor(.secondary))
     }
 }
 

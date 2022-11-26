@@ -24,11 +24,4 @@ class MyAnnouncesVM: ObservableObject {
             }
         }
     }
-    
-//    func addAnnounceExampleTODELETE() {
-//        self.myAnnounces.append(Announce.example)
-//        self.myAnnounces.append(Announce.example)
-//        self.myAnnounces.append(Announce.example)
-//        self.myAnnounces.append(Announce.example)
-//    }
 }

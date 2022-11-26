@@ -18,49 +18,49 @@ struct StartPageCreateAnnounce: View {
         NavigationStack{
             ZStack{
                 VStack{
-                    HStack(spacing:0){
-                        ForEach(0..<text.count){ num in
-                            Text(String(text[num]))
-                                .offset(y:offset).animation(.linear(duration:0.2).delay(Double(num)/30), value: offset)
-                        }
-                    }
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.horizontal)
+                    titleView
+                    
                     NavigationLink {
                         CreateAnnounceStartView().navigationBarBackButtonHidden()
                     } label: {
-                        HStack{
-                            Spacer()
-                            Text("Start!")
-                                .modifier(buttonModifierCreateAnnouce())
-                                .fontWeight(.bold)
-                                .font(.title)
-                                .opacity(opacity)
-                            
-                        }
+                        navlinkLabel
                     }
                 }
             }
         }
-            .onAppear{
-                Task{
-                   // withAnimation(Animation.linear.delay(0.5)){
-                        offset = -40
-                    withAnimation(Animation.linear(duration: 1.8)){
-                        opacity = 1
-                    }
-                   // }
-                    try await Task.sleep(nanoseconds: 100_000_000)
-                    //withAnimation{
-                        offset = 0
-                    //}
-                }
+        .onAppear{
+            Task{
+                offset = -40
+                withAnimation(Animation.linear(duration: 1.8)){ opacity = 1 }
+                try await Task.sleep(nanoseconds: 100_000_000)
+                offset = 0
             }
-            .onDisappear{
-                opacity = 0
+        }
+        .onDisappear{ opacity = 0 }
+    }
+    
+    var navlinkLabel: some View {
+        HStack{
+            Spacer()
+            Text("Start!")
+                .modifier(buttonModifierCreateAnnouce())
+                .fontWeight(.bold)
+                .font(.title)
+                .opacity(opacity)
+            
+        }
+    }
+    
+    var titleView: some View {
+        HStack(spacing:0){
+            ForEach(0..<text.count){ num in
+                Text(String(text[num]))
+                    .offset(y:offset).animation(.linear(duration:0.2).delay(Double(num)/30), value: offset)
             }
-        
+        }
+        .font(.largeTitle)
+        .fontWeight(.bold)
+        .padding(.horizontal)
     }
 }
 

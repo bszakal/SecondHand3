@@ -37,8 +37,6 @@ class CreateAnnounce: CreateAnnounceProtocol {
         // upload data image to firestorage -> get urls for image -> Upload complete announce
         let resultUploadImage = await createAnnounceFirebase.uploadImageStorage(photosData: images)
         
-            
-            
             switch resultUploadImage {
             case .success(let success):
                 

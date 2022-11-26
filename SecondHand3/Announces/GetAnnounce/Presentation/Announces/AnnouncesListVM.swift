@@ -86,22 +86,11 @@ class AnnouncesListVM: ObservableObject {
          favourites.contains (where: {$0.id == announceId})
     }
     
-    func addToFavourite(announce: Announce) {
-        Task{
-            if let id = announce.id {
-                await favouriteDomaine.addAnnounceToFavorite(announceID:id)
-            }
+    func AddOrRemoveFromFavourite(announce: Announce){
+        Task {
+            await favouriteDomaine.AddOrRemoveFromFavourite(announce:announce)
             getFavourite()
         }
-    }
-    
-    func removeFromFavourite(announce: Announce) {
-        
-        Task{
-           await favouriteDomaine.removeFromFavourite(announce: announce)
-            getFavourite()
-        }
-        
     }
     
     func loadTempData() -> [Announce] {

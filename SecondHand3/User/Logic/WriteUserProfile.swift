@@ -8,7 +8,6 @@
 import Foundation
 
 protocol WriteUserProfileProtocol {
-    
     func SaveProfile(profile: UserProfile, dataImg: Data?) async
 }
 
@@ -24,7 +23,7 @@ class WriteUserProfile: WriteUserProfileProtocol {
         let userUIDRes = await firebaseUserProfile.getuserUID()
         switch userUIDRes {
         case .success(_):
-            print("ok")
+            print("")
         case .failure(let failure):
             print(failure.localizedDescription)
             return
@@ -43,18 +42,5 @@ class WriteUserProfile: WriteUserProfileProtocol {
         }
         
         firebaseUserProfile.addUserProfile(user: profileLocal)
-        
-    }
-    
-    private func doesProfileAlreadyExists(user: UserProfile) async -> Bool {
-        
-       let profileExistsRes = await firebaseUserProfile.getUserProfile(userUID: user.id)
-        switch profileExistsRes {
-        case .success(_):
-            return true
-        case .failure(let failure):
-            print(failure.localizedDescription)
-            return false
-        }
     }
 }

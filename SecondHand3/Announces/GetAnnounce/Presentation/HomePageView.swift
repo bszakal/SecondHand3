@@ -15,10 +15,8 @@ struct HomePageView: View {
     @State private var maxPrice: Double = 1000
     @State private var noOlderThanDate: Date = Calendar.current.date(byAdding: .day, value: -30, to: Date()) ?? Date()
     
-    @State private var showFilterView = false
     @State private var showFilterSecondWay = false
     @State private var isfiletered = false
-    @State private var imageBackgroundBlur: UIImage? = nil
     
     
     var body: some View {
@@ -28,22 +26,11 @@ struct HomePageView: View {
                 ScrollView{
                     VStack{
                         
-                        searchBar(searchText: $searchText)
-                            .padding(.horizontal)
-                            .disabled(true)
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                //showFilterView = true
-                                withAnimation{
-                                    showFilterSecondWay = true
-                                }
-                                isfiletered = false
-                                imageBackgroundBlur = ImageRenderer(content: AnnounceView(isPartOfMainView: true)).uiImage
-                            }
+                        searchBarHomePage
                         
                         if isfiletered == true {
                             
-                            AnnounceView(showFilterView: false, isSearchFiltered: true, searchText: searchText, category: category, minPrice: minPrice, maxPrice: maxPrice, noOlderThanDate: noOlderThanDate)
+                            AnnounceView(isSearchFiltered: true, searchText: searchText, category: category, minPrice: minPrice, maxPrice: maxPrice, noOlderThanDate: noOlderThanDate)
                             
                         } else {
                             
@@ -60,17 +47,27 @@ struct HomePageView: View {
                 .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.3), .white]), startPoint: .top, endPoint: .trailing))
                
             } else {
-                SearchFilterView(searchText: $searchText, category: $category, minPrice: $minPrice, maxPrice: $maxPrice, noOlderThanDate: $noOlderThanDate, callbackIfSearchPushed:({
-                    isfiletered = true
-                        showFilterSecondWay = false
-                }), callbackIfCancelled: {
-                    withAnimation(.linear(duration: 0.5)){
-                        showFilterSecondWay = false
-                    }
-                })
+                SearchFilterView(searchText: $searchText, category: $category, minPrice: $minPrice, maxPrice: $maxPrice, noOlderThanDate: $noOlderThanDate,
+                                 callbackIfSearchPushed:({
+                                        isfiletered = true
+                                        showFilterSecondWay = false
+                                                        }),
+                                 callbackIfCancelled: {
+                    withAnimation(.linear(duration: 0.5)){ showFilterSecondWay = false }
+                  })
             }
-            
         }
+    }
+    
+    var searchBarHomePage: some View {
+        searchBar(searchText: $searchText)
+            .padding(.horizontal)
+            .disabled(true)
+            .contentShape(Rectangle())
+            .onTapGesture {
+                withAnimation{ showFilterSecondWay = true }
+                isfiletered = false
+            }
     }
     
 }

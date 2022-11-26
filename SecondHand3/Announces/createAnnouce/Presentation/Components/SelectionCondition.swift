@@ -10,7 +10,7 @@ import SwiftUI
 struct SelectionCondition: View {
     
     @Binding var condition: String
-    
+    let viewSize: (CGSize) ->Void
 
     var body: some View{
         
@@ -36,13 +36,20 @@ struct SelectionCondition: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding(.horizontal)
         }
- 
-        
+        .overlay(
+            GeometryReader{ geo in
+                Color.clear.onAppear{
+                    withAnimation{
+                        viewSize(geo.frame(in: .local).size)
+                    }
+                }
+            }
+        )      
     }
 }
 
 struct SelectionCondition_Previews: PreviewProvider {
     static var previews: some View {
-        SelectionCondition(condition: .constant(""))
+        SelectionCondition(condition: .constant(""), viewSize: {viewsize in })
     }
 }

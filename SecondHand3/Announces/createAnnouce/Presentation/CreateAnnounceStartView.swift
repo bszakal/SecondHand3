@@ -18,13 +18,10 @@ struct CreateAnnounceStartView: View {
     @Environment(\.dismiss) var dismiss
     
     @State private var selectedCategory = ""
-
     @State private var title: String = ""
     @State private var descrpition: String = "Description"
     @State private var price: Double?
-
     @State private var condition = ""
-    
     @State private var addressLine = ""
     @State private var postCode = ""
     @State private var city = ""
@@ -51,167 +48,117 @@ struct CreateAnnounceStartView: View {
     var body: some View {
         GeometryReader{ geox in
             ZStack{
-                LinearGradient(gradient: Gradient(colors: [.black,.white]), startPoint: .bottomLeading, endPoint: .topTrailing)
-                    .ignoresSafeArea()
-                HStack{
-                        if phaseNbre == 1 {
-                            Text("Category")
-                            
-                        } else if phaseNbre == 3 {
-                            Text("Title & Price")
-                            
-                        } else if phaseNbre == 2 {
-                            Text("Condition")
-                        } else if phaseNbre == 4 {
-                            Text("Deliver & Address")
-                        } else if phaseNbre == 6 {
-                            Text("Recap")
-                        }
-                    Spacer()
-                }
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-                .padding(.horizontal)
-                .offset(y: Double.maximum(geox.frame(in: .local).height/2 - viewOffset.height - 200.0, -geox.frame(in: .local).height/2 + 20))
+                backgrdColor
+                
+                //offset all the way to bottom of screen - the size of the view shown - some offset to account for bottom bar and spacing with ContentView
+                titleView
+                    .offset(y: Double.maximum(geox.frame(in: .local).height/2 - viewOffset.height - 200.0, -geox.frame(in: .local).height/2 + 20))
 
                 VStack{
-
-                    ScrollView{
-                        
-                            VStack(spacing:30) {
-                                Spacer()
-                                
-                                if phaseNbre == 1 {
-                                        selectionCategory(createAnnounceVM: createAnnounceVM, selectedCategory: $selectedCategory)
-                                            .overlay(
-                                                GeometryReader{ geo in
-                                                    Color.clear.onAppear{
-                                                        withAnimation{
-                                                            self.viewOffset = geo.frame(in: .local).size
-                                                        }
-                                                    }
-                                                }
-                                            )
-                                    
-                                } else if phaseNbre == 3 {
-                                    SelectionTitle(title: $title, descrpition: $descrpition, price: $price)
-                                        .overlay(
-                                            GeometryReader{ geo in
-                                                Color.clear.onAppear{
-                                                    withAnimation{
-                                                        self.viewOffset = geo.frame(in: .local).size
-                                                    }
-                                                }
-                                            }
-                                        )
-                                } else if phaseNbre == 2 {
-                                    SelectionCondition(condition: $condition)
-                                        .overlay(
-                                            GeometryReader{ geo in
-                                                Color.clear.onAppear{
-                                                    withAnimation{
-                                                        self.viewOffset = geo.frame(in: .local).size
-                                                    }
-                                                }
-                                            }
-                                        )
-                                } else if phaseNbre == 4 {
-                                    SelectionAddress(addressLine: $addressLine, postCode: $postCode, city: $city, deliveryType: $deliveryType)
-                                        .overlay(
-                                            GeometryReader{ geo in
-                                                Color.clear.onAppear{
-                                                    withAnimation{
-                                                        self.viewOffset = geo.frame(in: .local).size
-                                                    }
-                                                }
-                                            }
-                                        )
-                                } else if phaseNbre == 6 {
-                                        RecapCreateAnnounce(createAnnounceVM: createAnnounceVM, title: title, description: descrpition, price: price!, category: selectedCategory, condition: condition, deliveryType: deliveryType, address: addressLine, photos: uiPhotosArray)
-                                        .transition(.move(edge: .bottom)).animation(.linear(duration: 1), value: phaseNbre)
-                                        .overlay(
-                                            GeometryReader{ geo in
-                                                Color.clear.onAppear{
-                                                    withAnimation{
-                                                        self.viewOffset = geo.frame(in: .local).size
-                                                    }
-                                                }
-                                            }
-                                        )
-                                }
-                                
-                                Spacer()
-                            }
-                            
-                        
-                        .background(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                    }
-                    .offset(y: Double.maximum(geox.frame(in: .local).height - viewOffset.height - 120.0, 50.0))
+                    contentView
+                        .offset(y: Double.maximum(geox.frame(in: .local).height - viewOffset.height - 120.0, 50.0))
                     
                     bottomBar
                 }
             }
         }
         .toolbar(.hidden, for: .tabBar)
-        .toolbar{
-            Button {
-                showConfirmationDialogue = true
-            } label: {
-                Image(systemName: "xmark")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .padding(5)
-                    .background(Circle().foregroundColor(.black))
-            }
-
-        }
+        .toolbar{ Button { showConfirmationDialogue = true } label: { dismissBtonLabel } }
         
+        .onAppear{ createAnnounceVM.getCategories() }
+        
+        .onChange(of: createAnnounceVM.categories) { newValue in
+            if !newValue.isEmpty { phaseNbre = 1 }
+        }
+
         .onChange(of: phaseNbre, perform: { newValue in
-            if newValue == 5 {
-                showUploadPhotoSheet = true
-            }
+            if newValue == 5 { showUploadPhotoSheet = true }
         })
-        .sheet(isPresented: $showUploadPhotoSheet,onDismiss: {
+        
+        .sheet(isPresented: $showUploadPhotoSheet,
+               onDismiss: {
             if uiPhotosArray.isEmpty {
-                withAnimation{
-                    phaseNbre -= 1
-                }
-                showUploadPhotoSheet = false
+                withAnimation{ phaseNbre -= 1 }
             }
         }, content: {
             PhotoUploadSheet{ photos in
                 uiPhotosArray = photos
-                withAnimation{
-                    phaseNbre += 1
-                }
-                    showUploadPhotoSheet = false
-                
+                showUploadPhotoSheet = false
+                withAnimation{ phaseNbre += 1 }
             }
         })
-        .onAppear{
-               createAnnounceVM.getCategories()
-            }
-        .onChange(of: createAnnounceVM.categories) { newValue in
-            if !newValue.isEmpty {
-                    phaseNbre = 1
-            }
-        }
+ 
         .confirmationDialog("Are you sure?", isPresented: $showConfirmationDialogue) {
-            Button("Confirm", role: .destructive){
-                dismiss()
-            }
-            Button("Cancel", role: .cancel) {
-                showConfirmationDialogue = false
-            }
-        } message: {
-            Text("Are you sure you want to exit?")
-                .font(.title)
-        }
+            Button("Confirm", role: .destructive){ dismiss() }
+            Button("Cancel", role: .cancel) { showConfirmationDialogue = false }
+        } message: { Text("Are you sure you want to exit?").font(.title) }
         
     }
+    
+    var backgrdColor: some View {
+        LinearGradient(gradient: Gradient(colors: [.black,.white]), startPoint: .bottomLeading, endPoint: .topTrailing)
+            .ignoresSafeArea()
+    }
+    
+    var titleView: some View {
+        HStack{
+                if phaseNbre == 1 { Text("Category") }
+                else if phaseNbre == 3 { Text("Title & Price")}
+                else if phaseNbre == 2 {Text("Condition")}
+                else if phaseNbre == 4 {Text("Deliver & Address")}
+                else if phaseNbre == 6 {Text("Recap")}
+            Spacer()
+        }
+        .font(.largeTitle)
+        .fontWeight(.bold)
+        .foregroundColor(.white)
+        .padding(.horizontal)
 
+    }
+    
+    var contentView: some View {
+        ScrollView{
+    
+                VStack(spacing:30) {
+                    Spacer()
+                    if phaseNbre == 1 {
+                        selectionCategory(createAnnounceVM: createAnnounceVM, selectedCategory: $selectedCategory){
+                        self.viewOffset = $0 }
+                        
+                    } else if phaseNbre == 3 {
+                        SelectionTitle(title: $title, descrpition: $descrpition, price: $price){
+                            self.viewOffset = $0 }
+                        
+                    } else if phaseNbre == 2 {
+                        SelectionCondition(condition: $condition){
+                            self.viewOffset = $0 }
+
+                    } else if phaseNbre == 4 {
+                        SelectionAddress(addressLine: $addressLine, postCode: $postCode, city: $city, deliveryType: $deliveryType){
+                            self.viewOffset = $0 }
+                        
+                    } else if phaseNbre == 6 {
+                        RecapCreateAnnounce(createAnnounceVM: createAnnounceVM, title: title, description: descrpition, price: price!, category: selectedCategory, condition: condition, deliveryType: deliveryType, address: addressLine, photos: uiPhotosArray){
+                            self.viewOffset = $0 }
+                            .transition(.move(edge: .bottom)).animation(.linear(duration: 1), value: phaseNbre)
+                            
+                    }
+                    Spacer()
+                }
+                
+            
+            .background(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+        }
+    }
+
+    var dismissBtonLabel: some View {
+        Image(systemName: "xmark")
+            .foregroundColor(.white)
+            .fontWeight(.bold)
+            .padding(5)
+            .background(Circle().foregroundColor(.black))
+    }
     
     var bottomBar: some View {
         VStack(spacing:0){
@@ -219,12 +166,7 @@ struct CreateAnnounceStartView: View {
                 .frame(maxWidth: .infinity, maxHeight:2)
             HStack{
                 if phaseNbre != 1 && phaseNbre != 0 {
-                    Button("Back") {
-                        withAnimation {
-                            phaseNbre -= 1
-                        }
-                        
-                    }
+                    Button("Back") { withAnimation { phaseNbre -= 1 } }
                     .modifier(buttonModifierCreateAnnouce())
                     .disabled(phaseNbre == 1)
                 }
@@ -236,10 +178,8 @@ struct CreateAnnounceStartView: View {
                         
                         dismiss()
                     }
+                    withAnimation { phaseNbre += 1 }
                     
-                    withAnimation {
-                        phaseNbre += 1
-                    }
                 }, label: {
                     Text(phaseNbre == 6 ? "Create!" : "Next")
                 })
@@ -253,24 +193,18 @@ struct CreateAnnounceStartView: View {
         }
         .background(.white)
     }
+    
+    
 }
-
-
-
 
 
 struct selectionModifier: ViewModifier {
     let isSelected: Bool
     func body(content: Content) -> some View {
-        if isSelected {
-            content
-                .background(
-            RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 3).foregroundColor(.primary).opacity(1)
-            )
-        } else {
-            content
-                .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 3).foregroundColor(.primary).opacity(0.1))
-        }
+        content
+            .background(isSelected ?
+                        RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 3).foregroundColor(.primary).opacity(1) :
+                        RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 3).foregroundColor(.primary).opacity(0.1))
     }
 }
 

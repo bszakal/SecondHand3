@@ -19,22 +19,25 @@ protocol FirebaseUserProfileProtocol {
     func addUserProfile(user: UserProfile)
 }
 
-class FirebaseUserProfile: FirebaseUserProfileProtocol {
+class FirebaseUserProfile: FirebaseUserProfileProtocol, FirebaseGeneralQuery, FirebaseStorageGeneralQuery {
     
     enum loginError: Error {
         case userNotLoggedIn
     }
+    enum ErrorType: Error {
+        case isEmpty
+    }
     
     func getuserUID() async ->Result<String, Error> {
         
-        let userUID = Auth.auth().currentUser?.uid
+        let userUID = await FirebaseUserProfile.getuserID()
         return userUID != nil ? .success(userUID!) : .failure(loginError.userNotLoggedIn)
 
     }
     
     func getuserEmailAddress() async ->Result<String, Error> {
         
-        let userUID = Auth.auth().currentUser?.email
+        let userUID = await FirebaseUserProfile.getuserEmailAddress()
         return userUID != nil ? .success(userUID!) : .failure(loginError.userNotLoggedIn)
 
     }
@@ -42,80 +45,33 @@ class FirebaseUserProfile: FirebaseUserProfileProtocol {
     
     func getUserProfile(userUID: String) async -> Result<UserProfile, Error> {
         
-        let db = Firestore.firestore()
-        let docRef = db.collection("UserProfiles").document(userUID)
-            
-        do{
-            
-            let querySnapshots = try await docRef.getDocument()
-            let userProfile = try querySnapshots.data(as: UserProfile.self)
-            
-            return .success(userProfile)
-            
-        } catch {
-            print(error.localizedDescription)
-            return .failure(error)
+        let result = await FirebaseUserProfile.getCodableTypeForStringFilter(type: UserProfile.self, collectionName: "UserProfiles", filterbyField: nil, filterByDocIds: [userUID])
+        switch result {
+        case .success(let success):
+            if success.isEmpty{
+                // modify behavior of general query to return error if empty
+                return .failure(ErrorType.isEmpty)
+            } else {
+                return .success(success[0])
+            }
+        case .failure(let failure):
+            print(failure.localizedDescription)
+            return .failure(failure)
         }
         
     }
     
     func DeleteUserProfile(user: UserProfile) async -> Error?{
-        let db = Firestore.firestore()
-        let docRef = db.collection("UserProfiles").document(user.id)
-        
-        do{
-           try await docRef.delete()
-            return nil
-        } catch {
-            print(error.localizedDescription)
-            return error
-        }
+        await FirebaseUserProfile.removeFromCollection(collectionName: "UserProfiles", docId: user.id)
+        return nil
     }
     
     func uploadImageStorage(photosData: [Data]) async -> Result<[String], Error> {
-        
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-        let collection = storageRef.child("imagesProfiles")
-        
-        var urls = [String]()
-        
-        for photo in photosData {
-            
-            let photoref = collection.child(UUID().uuidString + ".jpeg")
-            
-            do{
-                let _ = try await photoref.putDataAsync(photo)
-                let url = try await photoref.downloadURL()
-                let urlStr = url.absoluteString
-                urls.append(urlStr)
-                
-            } catch{
-                print(error.localizedDescription)
-                return .failure(error)
-                
-            }
-        }
-            return .success(urls)
-        
+         await FirebaseUserProfile.uploadData(collectionName: "imagesProfiles", dataArray: photosData)
     }
     
     func addUserProfile(user: UserProfile) {
-        
-        let firestore = Firestore.firestore()
-        let collection = firestore.collection("UserProfiles")
-        let docRef = collection.document(user.id)
-        
-        do{
-            try docRef.setData(from: user) {err in
-                if let err1 = err {
-                    print(err1.localizedDescription)
-                }
-            }
-        } catch{
-            print(error.localizedDescription)
-        }
-        
+        FirebaseUserProfile.addCodableTypeToCollectionSpecificId(type: user, collectionName: "UserProfiles", id: user.id)
     }
     
     

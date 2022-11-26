@@ -15,15 +15,13 @@ enum DocChangeType: String {
 
 protocol FirebaseMessageProtocol {
     func getuserUID() async ->Result<String, Error>
-    func getMessages(CompletionHandler: @escaping ([Message], Error?)->Void)
     func addNewMessage(message: Message)
     func setMessageToReadStatus(messages: [Message])
     func getMessages2(CompletionHandler: @escaping ([(Message, DocChangeType)], Error?)->Void)
-    
 }
 
 
-class FirebaseMessage: FirebaseMessageProtocol {
+class FirebaseMessage: FirebaseMessageProtocol, FirebaseGeneralQuery {
     
 
     
@@ -33,79 +31,20 @@ class FirebaseMessage: FirebaseMessageProtocol {
     
     func getuserUID() async ->Result<String, Error> {
         
-        let userUID = Auth.auth().currentUser?.uid
+        let userUID = await FirebaseMessage.getuserID()
         return userUID != nil ? .success(userUID!) : .failure(loginError.userNotLoggedIn)
 
     }
     
-    func getMessages(CompletionHandler: @escaping ([Message], Error?)->Void) {
-        
-        
-        Task{
-            let idResult = await getuserUID()
-            switch idResult {
-            case .success(let success):
-            
-            let db = Firestore.firestore()
-            
-            let query = db.collection("Messages").whereField("ids", arrayContains: success)
-            
-            query.addSnapshotListener { snapshot, err in
-                guard let documents = snapshot?.documents else {
-                    print(err?.localizedDescription as Any)
-                    CompletionHandler(Array<Message>(), err)
-                    return
-                }
-        
-                let messages = documents.compactMap { document -> Message? in
-                    do{
-                        return try document.data(as: Message.self)
-                    } catch {
-                        print(error.localizedDescription)
-                        return nil
-                    }
-                }
-                
-                CompletionHandler(messages, nil)
-                
-            }
-            case .failure(let failure):
-                print(failure.localizedDescription)
-                CompletionHandler(Array<Message>(), failure)
-            }
-        }
-    }
-    
     func addNewMessage(message: Message) {
-        
-        let firestore = Firestore.firestore()
-        let collection = firestore.collection("Messages")
-        
-        
-        do{
-            let _ = try collection.addDocument(from: message)
-            //let _ = try await collection.addDocument(
-        } catch {
-            print(error)
-        }
-        
+        FirebaseMessage.addCodableTypeToCollectionIdFirebaseGenerated(type: message, collection: "Messages")
     }
     
     func setMessageToReadStatus(messages: [Message]) {
         
-        let firestore = Firestore.firestore()
-        let collection = firestore.collection("Messages")
         for message in messages {
-            let docRef = collection.document(message.id ?? "")
-            
-            do{
-                try docRef.setData(from: message) {err in
-                    if let err1 = err {
-                        print(err1.localizedDescription)
-                    }
-                }
-            } catch{
-                print(error.localizedDescription)
+            if let id = message.id {
+                FirebaseMessage.addCodableTypeToCollectionSpecificId(type: message, collectionName: "Messages", id: id)
             }
         }
     }
@@ -143,7 +82,6 @@ class FirebaseMessage: FirebaseMessageProtocol {
                                 return DocChangeType.Removed
                             }
                         }
-                        print(changeType)
                         return (try documentchange.document.data(as: Message.self),changeType)
                         
                     } catch {

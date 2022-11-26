@@ -9,39 +9,12 @@ import FirebaseFirestore
 import Foundation
 
 protocol FirebaseAnnounceProtocol {
-    func getAnnounces2(lastDocQuery: QueryDocumentSnapshot?, limit: Int) async ->Result<([Announce], QueryDocumentSnapshot?), Error>
+    func getAnnounces(lastDocQuery: (lastUpdateAt: Date, docId: String)?, limit: Int) async ->Result<([Announce], (lastUpdateAt: Date, docId: String)?), Error>
     func getuserUID() async ->Result<String, Error>
 }
 
-extension FirebaseAnnounceProtocol {
-    
-   static func getAnnouncesForIds(announcesId: [String]) async ->Result<([Announce]), Error> {
-        
-        let db = Firestore.firestore()
-        let  query = db.collection("Favourites").whereField("id", in: announcesId).order(by: "lastUpdatedAt", descending: true)
-                
-        do{
-            
-            let querySnapshots = try await query.getDocuments()
-            
-            if querySnapshots.isEmpty {
-                //return empty array and just give back what the lastquerydoc input, no update
-                return .success(Array<Announce>())
-            } else {
-                let announceArray =  try querySnapshots.documents.compactMap { try $0.data(as: Announce.self)}
-                return .success(announceArray)
-            }
-            
-        } catch {
-            print(error.localizedDescription)
-            return .failure(error)
-        }
-        
-    }
-    
-}
 
-class FirebaseAnnounce: FirebaseAnnounceProtocol {
+class FirebaseAnnounce: FirebaseAnnounceProtocol, FirebaseGeneralQuery {
     
     enum loginError: Error {
         case userNotLoggedIn
@@ -49,24 +22,23 @@ class FirebaseAnnounce: FirebaseAnnounceProtocol {
     
     func getuserUID() async ->Result<String, Error> {
         
-        let userUID = Auth.auth().currentUser?.uid
+        let userUID = await FirebaseAnnounce.getuserID()
         return userUID != nil ? .success(userUID!) : .failure(loginError.userNotLoggedIn)
 
     }
     
     
-    func getAnnounces2(lastDocQuery: QueryDocumentSnapshot?, limit: Int) async ->Result<([Announce], QueryDocumentSnapshot?), Error> {
+    func getAnnounces(lastDocQuery: (lastUpdateAt: Date, docId: String)?, limit: Int) async ->Result<([Announce], (lastUpdateAt: Date, docId: String)?), Error> {
         
         let db = Firestore.firestore()
         
         var query: Query
         
         if let lastDocQuery = lastDocQuery{
-             query = db.collection("Announces").order(by: "lastUpdatedAt", descending: true).start(afterDocument: lastDocQuery).limit(to: limit)
+            query = db.collection("Announces").order(by: "lastUpdatedAt", descending: true).order(by: FirebaseFirestore.FieldPath.documentID(), descending: true).start(after: [lastDocQuery.lastUpdateAt, lastDocQuery.docId]).limit(to: limit)
             
         } else {
-            query = db.collection("Announces").order(by: "lastUpdatedAt", descending: true).limit(to: limit)
-            
+            query = db.collection("Announces").order(by: "lastUpdatedAt", descending: true).order(by: FirebaseFirestore.FieldPath.documentID(), descending: true).limit(to: limit)
         }
         
         do{
@@ -78,8 +50,13 @@ class FirebaseAnnounce: FirebaseAnnounceProtocol {
                 return .success((Array<Announce>(),lastDocQuery))
             } else {
                 let announceArray =  try querySnapshots.documents.compactMap { try $0.data(as: Announce.self)}
-                return .success((announceArray,querySnapshots.documents.last))
-            }   
+                if let lastDoc = announceArray.last, let updateTime = lastDoc.lastUpdatedAt, let id = lastDoc.id {
+                    return .success((announceArray,(updateTime, id)))
+                } else {
+                    return .success((announceArray, nil))
+                }
+                
+            }
             
         } catch {
             print(error.localizedDescription)

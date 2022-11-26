@@ -10,6 +10,7 @@ import SwiftUI
 struct MyAccountView: View {
 
     @StateObject var myAccountVM = MyAccountVM()
+    
     var body: some View {
         
             NavigationStack{
@@ -18,42 +19,28 @@ struct MyAccountView: View {
                         NavigationLink {
                             UserProfileView()
                         } label: {
-                            HStack{
-                                Image(systemName: "person.crop.circle.fill")
-                                    .font(.title2)
-                                    .foregroundColor(.primary)
-                                Text("Edit profile")
-                            }
+                            itemListViewMyAccount(imageName: "person.crop.circle.fill",
+                                                  text: "Edit profile")
                         }
-                        
                     } header: {
                         Text("Profile")
-                        
                     }
                     .listSectionSeparator(.hidden)
+                    //
                     
                     Section{
                         NavigationLink {
                             FavouriteView()
                         } label: {
-                            HStack{
-                                Image(systemName: "heart.fill")
-                                    .font(.title2)
-                                    .foregroundColor(.primary)
-                                Text("Favourites")
-                            }
+                            itemListViewMyAccount(imageName: "heart.fill", text: "Favourites")
                         }
                         .listSectionSeparator(.hidden)
                         
                         NavigationLink {
                             MyAnnouncesView()
                         } label: {
-                            HStack{
-                                Image(systemName: "list.bullet.rectangle.fill")
-                                    .font(.title2)
-                                    .foregroundColor(.primary)
-                                Text("My announces")
-                            }
+                            itemListViewMyAccount(imageName: "list.bullet.rectangle.fill",
+                                                  text: "My announces")
                         }
                         .listSectionSeparator(.hidden)
                         
@@ -61,11 +48,9 @@ struct MyAccountView: View {
                         Text("Announces")
                     }
                     .listSectionSeparator(.hidden)
-                    
-                    
-                    Button("Log out") {
-                        myAccountVM.logOut()
-                    }
+                    //
+        
+                    Button("Log out") { myAccountVM.logOut() }
                     .listSectionSeparator(.hidden)
                     .underline()
                     .fontWeight(.semibold)
@@ -78,6 +63,18 @@ struct MyAccountView: View {
                 .toolbarBackground(.visible, for: .navigationBar)
                 .toolbarColorScheme(.dark, for: .navigationBar)
             }
+    }
+}
+struct itemListViewMyAccount: View {
+    let imageName: String
+    let text: String
+    var body: some View{
+        HStack{
+            Image(systemName: imageName)
+                .font(.title2)
+                .foregroundColor(.primary)
+            Text(text)
+        }
     }
 }
 

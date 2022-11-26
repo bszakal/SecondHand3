@@ -22,37 +22,33 @@ struct LoginView: View {
     @State private var showRegisterView = false
    
     var body: some View {
-
+        
         ZStack{
-           
-                titleView
+            
+            titleView
             
             VStack(alignment:.leading){
+                EmailSignInView(loginVM: loginVM)
+                emailRegisterButton
                 
-                emailSignIn
-                emailLoginButton
-               
-                HStack{
-                    dividerCustom
-                    Text("or")
-                        .font(.headline)
-                    dividerCustom
-                }
-                .padding(.bottom, 50)
+                dividerBtwnEmailAndFederated
                 
-                loginButtons
+                FederatedSignInView(loginVM: loginVM)
                 
             }
             .padding(.horizontal)
         }
         .ignoresSafeArea(.keyboard, edges:.bottom)
+        
         .sheet(item: $loginVM.correctProvider) { provider in
             SignInWithCorrectProviderView(correctProvider: provider)
                 .presentationDetents([.medium])
         }
+        
         .sheet(isPresented: $showRegisterView) {
             RegisterEmailView()
         }
+        
         .onChange(of: loginState.isLoggedIn) { newValue in
             if newValue == true { dismiss() }
         }
@@ -61,30 +57,36 @@ struct LoginView: View {
     
     var titleView: some View {
         
-            VStack{
-                ZStack{
-                    Text("Log in or Sign up")
-                        .fontWeight(.bold)
-                    HStack{
-                        Image(systemName: "xmark")
-                            .padding(.leading)
-                            .onTapGesture {
-                                dismiss()
-                            }
-                            
-                        Spacer()
-                    }
+        VStack{
+            ZStack{
+                Text("Log in or Sign up")
+                    .fontWeight(.bold)
+                
+                HStack{
+                    Image(systemName: "xmark")
+                        .padding(.leading)
+                        .onTapGesture { dismiss() }
+                    Spacer()
                 }
-                .font(.title2)
-                .padding(.top, 20)
-                dividerCustom
-                Spacer()
             }
-         
-        
+            .font(.title2)
+            .padding(.top, 20)
+            dividerCustom
+            Spacer()
+        }      
     }
     
-    var emailLoginButton: some View {
+    var dividerBtwnEmailAndFederated: some View {
+        HStack{
+            dividerCustom
+            Text("or")
+                .font(.headline)
+            dividerCustom
+        }
+        .padding(.bottom, 50)
+    }
+    
+    var emailRegisterButton: some View {
         Button(action: {
             showRegisterView = true
         }, label: {
@@ -97,103 +99,6 @@ struct LoginView: View {
         })
             .padding(.bottom, 10)
     }
-    
-        
-    var loginButtons: some View {
-        
-        VStack{
-            Button {
-                loginVM.SignInGoogle()
-            } label: {
-                ZStack(alignment: .leading){
-                    Text("Continue with Google")
-                        .modifier(logingButtonModif())
-                    Image("Google")
-                        .mylogoModifier()
-                }
-            }
-            
-            Button {
-                loginVM.SignInFacebook()
-            } label: {
-                ZStack(alignment: .leading){
-                    Text("Continue with Facebook")
-                        .modifier(logingButtonModif())
-                    Image("Facebook")
-                        .mylogoModifier()
-                }
-            }
-        }
-        .foregroundColor(.primary)
-    }
-        
-    
-    
-    
- @ViewBuilder  var emailSignIn: some View {
-     VStack(spacing: 5){
-         
-         Text(loginVM.emailSignInErrornotification)
-             .foregroundColor(.red)
-             .padding(.bottom)
-         
-         TextField("Email", text: $email)
-             .modifier(Email_Password())
-             .textInputAutocapitalization(.never)
-             .autocorrectionDisabled(true)
-             
-         ZStack(alignment:.trailing){
-             Group{
-                 if showPassword {
-                     TextField("Password", text: $password)
-                         .autocorrectionDisabled()
-                         .textInputAutocapitalization(.never)
-                     
-                 } else {
-                     SecureField("Password", text: $password)
-                         .autocorrectionDisabled()
-                         .textInputAutocapitalization(.never)
-                 }
-             }
-             
-             .modifier(Email_Password())
-             Group{
-                 if showPassword {
-                     Image(systemName: "eye.slash")
-                         .onTapGesture {
-                             showPassword.toggle()
-                         }
-                 } else {
-                     Image(systemName: "eye.circle")
-                         .onTapGesture {
-                             showPassword.toggle()
-                         }
-                 }
-             }
-             .padding(.trailing)
-             
-         }
-     }
-
-     .padding(.bottom, 20)
-     
-     Button {
-         Task {
-             await loginVM.signInWithEmail(email:self.email, password: self.password)
-         }
-     } label: {
-         Text("Continue")
-             .foregroundColor(.white)
-             .font(.title2)
-             .fontWeight(.semibold)
-             .frame(maxWidth: .infinity, maxHeight: 60)
-             .background(.black.opacity(0.7))
-             .clipShape((RoundedRectangle(cornerRadius: 10)))
-     }
-     //.disabled(email.count < 5 || password.count < 5)
-
-        }
-    
 }
 
 
@@ -203,9 +108,6 @@ var dividerCustom: some View {
         .frame(maxHeight: 1)
         .opacity(0.3)
 }
-
-
-
 
 struct logingButtonModif: ViewModifier {
     func body(content: Content) -> some View {
@@ -221,7 +123,6 @@ struct Email_Password: ViewModifier {
             .padding(.leading)
             .frame(maxWidth: .infinity, maxHeight: 60)
             .background(RoundedRectangle(cornerRadius: 10).stroke())
-           
     }
 }
 

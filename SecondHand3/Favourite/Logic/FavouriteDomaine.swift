@@ -13,6 +13,7 @@ protocol FavouriteDomaineProtocol {
     func removeFromFavourite(announce: Announce) async
     func isAnnounceAFavourite(announce: Announce) async -> Bool
     var favourites: Published<[Announce]>.Publisher {get}
+    func AddOrRemoveFromFavourite(announce: Announce) async
 }
 
 class FavouriteDomaine: FavouriteDomaineProtocol {
@@ -101,5 +102,18 @@ class FavouriteDomaine: FavouriteDomaineProtocol {
         let favourites = await getFavouriteAnnounce()
         return favourites.contains{$0.id == announce.id}
         
+    }
+    
+    func AddOrRemoveFromFavourite(announce: Announce) async {
+        
+        let isAFav = await isAnnounceAFavourite(announce: announce)
+        
+        if isAFav {
+            await removeFromFavourite(announce: announce)
+        } else {
+            if let id = announce.id{
+                await addAnnounceToFavorite(announceID: id)
+            }
+        }
     }
 }

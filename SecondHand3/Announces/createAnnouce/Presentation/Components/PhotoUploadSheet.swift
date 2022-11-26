@@ -23,7 +23,7 @@ struct PhotoUploadSheet: View {
         VStack{
             title
                 .padding(.top)
-                
+            
             VStack{
                 
                 ScrollView{

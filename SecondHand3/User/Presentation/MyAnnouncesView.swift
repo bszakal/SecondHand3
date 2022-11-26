@@ -20,17 +20,13 @@ struct MyAnnouncesView: View {
                     } label: {
                         myAnnounceSingleView(announce: announce)
                     }
-                    
                 }
                 .listRowSeparator(.hidden)
                
             }
             
             .listStyle(.plain)
-            .onAppear{
-                myAnnouncesVm.getMyAnnounce()
-//                myAnnouncesVm.addAnnounceExampleTODELETE()
-            }
+            .onAppear{ myAnnouncesVm.getMyAnnounce() }
 
         .navigationTitle("My announces")
         .navigationBarTitleDisplayMode(.inline)
@@ -43,7 +39,7 @@ struct myAnnounceSingleView: View {
     
     var body: some View{
         HStack(alignment: .bottom){
-                photoView2(imageUrlsString: announce.imageRefs)        
+            photoView2(imageUrlsString: announce.imageRefs)        
                 .frame(width: 130, height: 150)
             TextView(announce: announce)
             Spacer()

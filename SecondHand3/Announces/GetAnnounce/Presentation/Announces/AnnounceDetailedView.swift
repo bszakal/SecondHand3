@@ -15,16 +15,15 @@ struct AnnounceDetailedView: View {
     @StateObject var announceDetailedVM = AnnounceDetailedVM()
     let announce: Announce
     
-    @State private var scaleEffectFav: Double = 1
-    @State private var changedFavourite: Bool = false
     
     var body: some View {
         GeometryReader{ geo in
             VStack{
                 ScrollView{
                     VStack{
-                        photoDetailedView
+                        photoView2(imageUrlsString: announce.imageRefs)
                             .frame(height: geo.frame(in: .local).height / 2)
+                        
                         VStack(alignment:.leading){
                             announceMainInfos
                             
@@ -47,7 +46,15 @@ struct AnnounceDetailedView: View {
         }
         .toolbar(.hidden, for: .tabBar)
         .toolbar(content: {
-            favouriteButton
+            FavouriteHeartView(isLoggedIn: loginState.isLoggedIn, isAFavourite: announceDetailedVM.isAFavourite) {
+                if loginState.isLoggedIn{
+                    announceDetailedVM.AddOrRemoveFromFavourite(announce: announce)
+                } else {
+                    showloginView = true
+                }
+            }
+            .padding(5)
+            .background(Circle()).foregroundColor(.white)
         })
         .edgesIgnoringSafeArea(.top)
         .onAppear{
@@ -61,14 +68,11 @@ struct AnnounceDetailedView: View {
         }
     }
     
-    var photoDetailedView: some View {
-                photoView2(imageUrlsString: announce.imageRefs)
-    }
     
     var userDetails: some View {
         VStack(alignment:.leading){
             HStack{
-                photoView2(imageUrlsString: [announceDetailedVM.userProfileForAnnounce.profilePictureUrlStr])
+                photoView2(imageUrlsString: [announceDetailedVM.userProfileForAnnounce.profilePictureUrlStr],imageToShowIfFail: Image(systemName: "person"))
                     .frame(width: 75, height: 75)
                     .clipShape(Circle())
                     .padding(.trailing, 10)
@@ -97,7 +101,6 @@ struct AnnounceDetailedView: View {
             HStack{
                 VStack(alignment:.leading){
                     Text(announce.title)
-                    // .padding(.bottom, 1)
                     Text((announce.price), format: .currency(code: "EUR"))
                         .padding(.bottom, 1)
                     Text(announce.lastUpdatedAt ?? Date(), format: .dateTime)
@@ -120,40 +123,31 @@ struct AnnounceDetailedView: View {
     }
     
     var announceDescription: some View {
-        VStack(alignment:.leading){
-            Text("Description")
-                .font(.title3)
-                .fontWeight(.semibold)
-               // .padding(.bottom,1)
-                .foregroundColor(.secondary)
-            Text(announce.description)
-            //dividerCustom
-        }
+        announceDetailedViewText(title: "Description", bodyText: announce.description)
         .padding(.bottom)
     }
     
     var announceCondition: some View {
-        VStack(alignment:.leading){
-            Text("Condition")
-                .font(.title3)
-                .fontWeight(.semibold)
-                //.padding(.bottom,1)
-                .foregroundColor(.secondary)
-            Text(announce.condition)
-            
-            //dividerCustom
-        }
+        announceDetailedViewText(title: "Condition", bodyText: announce.condition)
         .padding(.bottom)
+ 
     }
     
     var announceDelivery: some View {
-        VStack(alignment:.leading){
-            Text("Delivery")
-                .font(.title3)
-                .fontWeight(.semibold)
-               // .padding(.bottom,1)
-                .foregroundColor(.secondary)
-            Text(announce.deliveryType)
+        announceDetailedViewText(title: "Delivery", bodyText: announce.deliveryType)
+    }
+    
+    struct announceDetailedViewText: View {
+        let title: String
+        let bodyText: String
+        var body: some View{
+            VStack(alignment:.leading){
+                Text(title)
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.secondary)
+                Text(bodyText)
+            }
         }
     }
     
@@ -171,25 +165,13 @@ struct AnnounceDetailedView: View {
                         LoginView().navigationBarBackButtonHidden()
                     }
                 } label: {
-                    ZStack{
-                        Text("Message")
-                            .frame(maxWidth: .infinity)
-                            .foregroundColor(.primary)
-                        RoundedRectangle(cornerRadius: 10).stroke().foregroundColor(.primary)
-                    }
+                    bottomBarButtonLabel(text: "Message")
                 }
                 
-                
                 Button {
-                    
+                    //TODO
                 } label: {
-                    ZStack{
-                        Text("Buy")
-                            .frame(maxWidth: .infinity)
-                            .foregroundColor(.primary)
-                           
-                        RoundedRectangle(cornerRadius: 10).stroke().foregroundColor(.primary)
-                    }
+                    bottomBarButtonLabel(text: "Buy")
                     
                 }
             }
@@ -200,39 +182,17 @@ struct AnnounceDetailedView: View {
         .background(.white)
     }
     
-    var favouriteButton: some View {
-        Button {
-            if loginState.isLoggedIn{
-                if announceDetailedVM.isAFavourite {
-                    announceDetailedVM.removeFromFavourite(announce: announce)
-                } else {
-                    announceDetailedVM.addToFavourite(announce: announce)
-                }
-                Task{
-                    scaleEffectFav = 2
-                    try await Task.sleep(nanoseconds: 200_000_00)
-                    scaleEffectFav = 1
-                }
-            } else {
-                showloginView = true
-            }
-        } label: {
-            if announceDetailedVM.isAFavourite {
-                Image(systemName: "heart.fill")
-                    .foregroundColor(.red)
-                    .padding(6)
-                    .background(Circle().foregroundColor(.white))
-                    .modifier(animatedFavChange(scaleEffectFav: scaleEffectFav))
-            } else {
-                Image(systemName: "heart")
+    struct bottomBarButtonLabel: View {
+        let text: String
+        var body: some View{
+            ZStack{
+                Text(text)
+                    .frame(maxWidth: .infinity)
                     .foregroundColor(.primary)
-                    .padding(6)
-                    .background(Circle().foregroundColor(.white))
-                    .modifier(animatedFavChange(scaleEffectFav: scaleEffectFav))
-                    
+                   
+                RoundedRectangle(cornerRadius: 10).stroke().foregroundColor(.primary)
             }
         }
-
     }
 }
 
