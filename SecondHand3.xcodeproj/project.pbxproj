@@ -3,10 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FA29D6547084E15D0DB82E8 /* Pods_SecondHand3Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061326836C3358E06158D273 /* Pods_SecondHand3Tests.framework */; };
+		619A639C2937694F0084B8B3 /* SecondHand3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A639B2937694F0084B8B3 /* SecondHand3Tests.swift */; };
+		619A63A4293769D70084B8B3 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63A3293769D70084B8B3 /* FacebookCore */; };
+		619A63A6293769D70084B8B3 /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63A5293769D70084B8B3 /* FacebookGamingServices */; };
+		619A63A8293769D70084B8B3 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63A7293769D70084B8B3 /* FacebookLogin */; };
+		619A63AA293769D70084B8B3 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63A9293769D70084B8B3 /* FacebookShare */; };
+		619A63AC29376B0C0084B8B3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63AB29376B0C0084B8B3 /* FirebaseAuth */; };
+		619A63AE29376B0C0084B8B3 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63AD29376B0C0084B8B3 /* FirebaseAuthCombine-Community */; };
+		619A63B029376B0C0084B8B3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63AF29376B0C0084B8B3 /* FirebaseFirestore */; };
+		619A63B229376B0C0084B8B3 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63B129376B0C0084B8B3 /* FirebaseFirestoreCombine-Community */; };
+		619A63B429376B0C0084B8B3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63B329376B0C0084B8B3 /* FirebaseFirestoreSwift */; };
+		619A63B629376B0C0084B8B3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63B529376B0C0084B8B3 /* FirebaseStorage */; };
+		619A63B829376B0D0084B8B3 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63B729376B0D0084B8B3 /* FirebaseStorageCombine-Community */; };
+		619A63BA29376B480084B8B3 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63B929376B480084B8B3 /* GoogleSignInSwift */; };
+		619A63BC29376B950084B8B3 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63BB29376B950084B8B3 /* Swinject */; };
+		619A63BE29376B950084B8B3 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 619A63BD29376B950084B8B3 /* NukeUI */; };
+		619A63C52937B3240084B8B3 /* AnnounceRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A63C42937B3240084B8B3 /* AnnounceRepo.swift */; };
+		619A63C7293A549A0084B8B3 /* CreateAnnounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A63C6293A549A0084B8B3 /* CreateAnnounce.swift */; };
+		619A63C9293B47FE0084B8B3 /* AnnouncesListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A63C8293B47FE0084B8B3 /* AnnouncesListVM.swift */; };
+		619A63CB293BB7400084B8B3 /* AnnounceDetailedViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A63CA293BB7400084B8B3 /* AnnounceDetailedViewVM.swift */; };
+		619A63CD293CA5200084B8B3 /* SearchFilterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A63CC293CA5200084B8B3 /* SearchFilterVM.swift */; };
+		619A63D5293CA8C30084B8B3 /* CreateAnnounceVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A63D4293CA8C30084B8B3 /* CreateAnnounceVM.swift */; };
+		619A63D8293CB95C0084B8B3 /* FavouriteDomaine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A63D7293CB95C0084B8B3 /* FavouriteDomaine.swift */; };
 		61AAAE8F290D879E0039D039 /* SecondHand3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AAAE8E290D879E0039D039 /* SecondHand3App.swift */; };
 		61AAAE91290D879E0039D039 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AAAE90290D879E0039D039 /* LoginView.swift */; };
 		61AAAE93290D879F0039D039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61AAAE92290D879F0039D039 /* Assets.xcassets */; };
@@ -106,16 +129,37 @@
 		61FF9E0A2922981300B6ADB9 /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF9E092922981300B6ADB9 /* ChatVM.swift */; };
 		61FF9E0C2923CFD300B6ADB9 /* MessageDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF9E0B2923CFD300B6ADB9 /* MessageDI.swift */; };
 		61FF9E0E2923D1AB00B6ADB9 /* MessageCreateUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF9E0D2923D1AB00B6ADB9 /* MessageCreateUpdate.swift */; };
+		ACCD026823F72625A6A22F5C /* Pods_SecondHand3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B13EE56E4303FBCC9CF789 /* Pods_SecondHand3.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		619A639D2937694F0084B8B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61AAAE83290D879E0039D039 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61AAAE8A290D879E0039D039;
+			remoteInfo = SecondHand3;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		061326836C3358E06158D273 /* Pods_SecondHand3Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecondHand3Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19B13EE56E4303FBCC9CF789 /* Pods_SecondHand3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecondHand3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		619A63992937694F0084B8B3 /* SecondHand3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecondHand3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		619A639B2937694F0084B8B3 /* SecondHand3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondHand3Tests.swift; sourceTree = "<group>"; };
+		619A63C42937B3240084B8B3 /* AnnounceRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnounceRepo.swift; sourceTree = "<group>"; };
+		619A63C6293A549A0084B8B3 /* CreateAnnounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnnounce.swift; sourceTree = "<group>"; };
+		619A63C8293B47FE0084B8B3 /* AnnouncesListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncesListVM.swift; sourceTree = "<group>"; };
+		619A63CA293BB7400084B8B3 /* AnnounceDetailedViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnounceDetailedViewVM.swift; sourceTree = "<group>"; };
+		619A63CC293CA5200084B8B3 /* SearchFilterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterVM.swift; sourceTree = "<group>"; };
+		619A63D4293CA8C30084B8B3 /* CreateAnnounceVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnnounceVM.swift; sourceTree = "<group>"; };
+		619A63D7293CB95C0084B8B3 /* FavouriteDomaine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDomaine.swift; sourceTree = "<group>"; };
 		61AAAE8B290D879E0039D039 /* SecondHand3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondHand3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61AAAE8E290D879E0039D039 /* SecondHand3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondHand3App.swift; sourceTree = "<group>"; };
 		61AAAE90290D879E0039D039 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		61AAAE92290D879F0039D039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61AAAE95290D879F0039D039 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		61AAAE9C290D87E30039D039 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		61AAAE9E290D87F60039D039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		61AAAEA9290D8B1B0039D039 /* GoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignIn.swift; sourceTree = "<group>"; };
 		61AAAEB0290D92D20039D039 /* fbSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fbSignIn.swift; sourceTree = "<group>"; };
 		61AAAEB2290DD0F20039D039 /* FirebaseSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignIn.swift; sourceTree = "<group>"; };
@@ -149,6 +193,8 @@
 		61AAAF4C2916A7830039D039 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		61AAAF4E2916AA6C0039D039 /* PhotoUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadView.swift; sourceTree = "<group>"; };
 		61AAAF502916AD270039D039 /* PhotoUploadSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadSheet.swift; sourceTree = "<group>"; };
+		61C7068735AD2E197B60E278 /* Pods-SecondHand3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecondHand3.debug.xcconfig"; path = "Target Support Files/Pods-SecondHand3/Pods-SecondHand3.debug.xcconfig"; sourceTree = "<group>"; };
+		61D569FC2936426300116A4E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61FEDDF929292B3B00665942 /* CreateAnnounceMasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnnounceMasterView.swift; sourceTree = "<group>"; };
 		61FEDDFD29293FF300665942 /* CategorySelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelection.swift; sourceTree = "<group>"; };
 		61FEDDFF2929412000665942 /* SelectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTitle.swift; sourceTree = "<group>"; };
@@ -197,9 +243,34 @@
 		61FF9E092922981300B6ADB9 /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
 		61FF9E0B2923CFD300B6ADB9 /* MessageDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDI.swift; sourceTree = "<group>"; };
 		61FF9E0D2923D1AB00B6ADB9 /* MessageCreateUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCreateUpdate.swift; sourceTree = "<group>"; };
+		7B17C88C1C24D67D70833847 /* Pods-SecondHand3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecondHand3Tests.release.xcconfig"; path = "Target Support Files/Pods-SecondHand3Tests/Pods-SecondHand3Tests.release.xcconfig"; sourceTree = "<group>"; };
+		8CA313C59E07FB7134B34385 /* Pods-SecondHand3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecondHand3.release.xcconfig"; path = "Target Support Files/Pods-SecondHand3/Pods-SecondHand3.release.xcconfig"; sourceTree = "<group>"; };
+		D65AA07F1D10E74758BD26F9 /* Pods-SecondHand3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecondHand3Tests.debug.xcconfig"; path = "Target Support Files/Pods-SecondHand3Tests/Pods-SecondHand3Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		619A63962937694F0084B8B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				619A63B829376B0D0084B8B3 /* FirebaseStorageCombine-Community in Frameworks */,
+				619A63BE29376B950084B8B3 /* NukeUI in Frameworks */,
+				619A63A4293769D70084B8B3 /* FacebookCore in Frameworks */,
+				619A63B229376B0C0084B8B3 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				619A63BA29376B480084B8B3 /* GoogleSignInSwift in Frameworks */,
+				619A63AE29376B0C0084B8B3 /* FirebaseAuthCombine-Community in Frameworks */,
+				619A63B629376B0C0084B8B3 /* FirebaseStorage in Frameworks */,
+				619A63AC29376B0C0084B8B3 /* FirebaseAuth in Frameworks */,
+				619A63A6293769D70084B8B3 /* FacebookGamingServices in Frameworks */,
+				619A63AA293769D70084B8B3 /* FacebookShare in Frameworks */,
+				619A63A8293769D70084B8B3 /* FacebookLogin in Frameworks */,
+				619A63B029376B0C0084B8B3 /* FirebaseFirestore in Frameworks */,
+				619A63B429376B0C0084B8B3 /* FirebaseFirestoreSwift in Frameworks */,
+				619A63BC29376B950084B8B3 /* Swinject in Frameworks */,
+				4FA29D6547084E15D0DB82E8 /* Pods_SecondHand3Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61AAAE88290D879E0039D039 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,17 +288,101 @@
 				61AAAF0D291124350039D039 /* FirebaseAuthCombine-Community in Frameworks */,
 				61AAAF17291124350039D039 /* FirebaseStorageCombine-Community in Frameworks */,
 				61AAAEA8290D89280039D039 /* GoogleSignInSwift in Frameworks */,
+				ACCD026823F72625A6A22F5C /* Pods_SecondHand3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		619A639A2937694F0084B8B3 /* SecondHand3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				619A639B2937694F0084B8B3 /* SecondHand3Tests.swift */,
+				619A63CE293CA7260084B8B3 /* Announces */,
+				619A63D7293CB95C0084B8B3 /* FavouriteDomaine.swift */,
+			);
+			path = SecondHand3Tests;
+			sourceTree = "<group>";
+		};
+		619A63A2293769D70084B8B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19B13EE56E4303FBCC9CF789 /* Pods_SecondHand3.framework */,
+				061326836C3358E06158D273 /* Pods_SecondHand3Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		619A63CE293CA7260084B8B3 /* Announces */ = {
+			isa = PBXGroup;
+			children = (
+				619A63D2293CA7700084B8B3 /* CreateAnnounce */,
+				619A63CF293CA73C0084B8B3 /* GetAnnounce */,
+			);
+			path = Announces;
+			sourceTree = "<group>";
+		};
+		619A63CF293CA73C0084B8B3 /* GetAnnounce */ = {
+			isa = PBXGroup;
+			children = (
+				619A63D1293CA75B0084B8B3 /* Presentation */,
+				619A63D0293CA74D0084B8B3 /* Logic */,
+			);
+			path = GetAnnounce;
+			sourceTree = "<group>";
+		};
+		619A63D0293CA74D0084B8B3 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				619A63C42937B3240084B8B3 /* AnnounceRepo.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		619A63D1293CA75B0084B8B3 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				619A63C8293B47FE0084B8B3 /* AnnouncesListVM.swift */,
+				619A63CA293BB7400084B8B3 /* AnnounceDetailedViewVM.swift */,
+				619A63CC293CA5200084B8B3 /* SearchFilterVM.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		619A63D2293CA7700084B8B3 /* CreateAnnounce */ = {
+			isa = PBXGroup;
+			children = (
+				619A63D6293CB38B0084B8B3 /* Presentation */,
+				619A63D3293CA77D0084B8B3 /* Logic */,
+			);
+			path = CreateAnnounce;
+			sourceTree = "<group>";
+		};
+		619A63D3293CA77D0084B8B3 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				619A63C6293A549A0084B8B3 /* CreateAnnounce.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		619A63D6293CB38B0084B8B3 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				619A63D4293CA8C30084B8B3 /* CreateAnnounceVM.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		61AAAE82290D879E0039D039 = {
 			isa = PBXGroup;
 			children = (
 				61AAAE8D290D879E0039D039 /* SecondHand3 */,
+				619A639A2937694F0084B8B3 /* SecondHand3Tests */,
 				61AAAE8C290D879E0039D039 /* Products */,
+				619A63A2293769D70084B8B3 /* Frameworks */,
+				E2AFB8460249CBF9CC10DD23 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -235,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				61AAAE8B290D879E0039D039 /* SecondHand3.app */,
+				619A63992937694F0084B8B3 /* SecondHand3Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -243,7 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				61AAAECC291045A10039D039 /* TestView.swift */,
-				61AAAE9E290D87F60039D039 /* Info.plist */,
+				61D569FC2936426300116A4E /* Info.plist */,
 				61AAAE9C290D87E30039D039 /* GoogleService-Info.plist */,
 				61AAAE8E290D879E0039D039 /* SecondHand3App.swift */,
 				61AAAF21291145790039D039 /* MainTabView.swift */,
@@ -781,13 +937,61 @@
 			path = Messages;
 			sourceTree = "<group>";
 		};
+		E2AFB8460249CBF9CC10DD23 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61C7068735AD2E197B60E278 /* Pods-SecondHand3.debug.xcconfig */,
+				8CA313C59E07FB7134B34385 /* Pods-SecondHand3.release.xcconfig */,
+				D65AA07F1D10E74758BD26F9 /* Pods-SecondHand3Tests.debug.xcconfig */,
+				7B17C88C1C24D67D70833847 /* Pods-SecondHand3Tests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		619A63982937694F0084B8B3 /* SecondHand3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 619A639F2937694F0084B8B3 /* Build configuration list for PBXNativeTarget "SecondHand3Tests" */;
+			buildPhases = (
+				2351362DD7A0029A40F4580E /* [CP] Check Pods Manifest.lock */,
+				619A63952937694F0084B8B3 /* Sources */,
+				619A63962937694F0084B8B3 /* Frameworks */,
+				619A63972937694F0084B8B3 /* Resources */,
+				3C16B5893082D91F37AAF66E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				619A639E2937694F0084B8B3 /* PBXTargetDependency */,
+			);
+			name = SecondHand3Tests;
+			packageProductDependencies = (
+				619A63A3293769D70084B8B3 /* FacebookCore */,
+				619A63A5293769D70084B8B3 /* FacebookGamingServices */,
+				619A63A7293769D70084B8B3 /* FacebookLogin */,
+				619A63A9293769D70084B8B3 /* FacebookShare */,
+				619A63AB29376B0C0084B8B3 /* FirebaseAuth */,
+				619A63AD29376B0C0084B8B3 /* FirebaseAuthCombine-Community */,
+				619A63AF29376B0C0084B8B3 /* FirebaseFirestore */,
+				619A63B129376B0C0084B8B3 /* FirebaseFirestoreCombine-Community */,
+				619A63B329376B0C0084B8B3 /* FirebaseFirestoreSwift */,
+				619A63B529376B0C0084B8B3 /* FirebaseStorage */,
+				619A63B729376B0D0084B8B3 /* FirebaseStorageCombine-Community */,
+				619A63B929376B480084B8B3 /* GoogleSignInSwift */,
+				619A63BB29376B950084B8B3 /* Swinject */,
+				619A63BD29376B950084B8B3 /* NukeUI */,
+			);
+			productName = SecondHand3Tests;
+			productReference = 619A63992937694F0084B8B3 /* SecondHand3Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		61AAAE8A290D879E0039D039 /* SecondHand3 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61AAAE99290D879F0039D039 /* Build configuration list for PBXNativeTarget "SecondHand3" */;
 			buildPhases = (
+				A81DB5A984D46908FA089F08 /* [CP] Check Pods Manifest.lock */,
 				61AAAE87290D879E0039D039 /* Sources */,
 				61AAAE88290D879E0039D039 /* Frameworks */,
 				61AAAE89290D879E0039D039 /* Resources */,
@@ -826,13 +1030,17 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					619A63982937694F0084B8B3 = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 61AAAE8A290D879E0039D039;
+					};
 					61AAAE8A290D879E0039D039 = {
 						CreatedOnToolsVersion = 14.0;
 					};
 				};
 			};
 			buildConfigurationList = 61AAAE86290D879E0039D039 /* Build configuration list for PBXProject "SecondHand3" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -852,11 +1060,19 @@
 			projectRoot = "";
 			targets = (
 				61AAAE8A290D879E0039D039 /* SecondHand3 */,
+				619A63982937694F0084B8B3 /* SecondHand3Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		619A63972937694F0084B8B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61AAAE89290D879E0039D039 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -869,7 +1085,86 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2351362DD7A0029A40F4580E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SecondHand3Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C16B5893082D91F37AAF66E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SecondHand3Tests/Pods-SecondHand3Tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SecondHand3Tests/Pods-SecondHand3Tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SecondHand3Tests/Pods-SecondHand3Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A81DB5A984D46908FA089F08 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SecondHand3-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		619A63952937694F0084B8B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				619A63CD293CA5200084B8B3 /* SearchFilterVM.swift in Sources */,
+				619A63C52937B3240084B8B3 /* AnnounceRepo.swift in Sources */,
+				619A63C9293B47FE0084B8B3 /* AnnouncesListVM.swift in Sources */,
+				619A63D8293CB95C0084B8B3 /* FavouriteDomaine.swift in Sources */,
+				619A639C2937694F0084B8B3 /* SecondHand3Tests.swift in Sources */,
+				619A63D5293CA8C30084B8B3 /* CreateAnnounceVM.swift in Sources */,
+				619A63C7293A549A0084B8B3 /* CreateAnnounce.swift in Sources */,
+				619A63CB293BB7400084B8B3 /* AnnounceDetailedViewVM.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61AAAE87290D879E0039D039 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -962,7 +1257,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		619A639E2937694F0084B8B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61AAAE8A290D879E0039D039 /* SecondHand3 */;
+			targetProxy = 619A639D2937694F0084B8B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		619A63A02937694F0084B8B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D65AA07F1D10E74758BD26F9 /* Pods-SecondHand3Tests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.szakal.benjamin.SecondHand3Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SecondHand3.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SecondHand3";
+			};
+			name = Debug;
+		};
+		619A63A12937694F0084B8B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B17C88C1C24D67D70833847 /* Pods-SecondHand3Tests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.szakal.benjamin.SecondHand3Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SecondHand3.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SecondHand3";
+			};
+			name = Release;
+		};
 		61AAAE97290D879F0039D039 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1079,6 +1418,7 @@
 		};
 		61AAAE9A290D879F0039D039 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61C7068735AD2E197B60E278 /* Pods-SecondHand3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1110,6 +1450,7 @@
 		};
 		61AAAE9B290D879F0039D039 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CA313C59E07FB7134B34385 /* Pods-SecondHand3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1142,6 +1483,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		619A639F2937694F0084B8B3 /* Build configuration list for PBXNativeTarget "SecondHand3Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				619A63A02937694F0084B8B3 /* Debug */,
+				619A63A12937694F0084B8B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		61AAAE86290D879E0039D039 /* Build configuration list for PBXProject "SecondHand3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1206,6 +1556,76 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		619A63A3293769D70084B8B3 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAEAB290D90F90039D039 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		619A63A5293769D70084B8B3 /* FacebookGamingServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAEAB290D90F90039D039 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookGamingServices;
+		};
+		619A63A7293769D70084B8B3 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAEAB290D90F90039D039 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		619A63A9293769D70084B8B3 /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAEAB290D90F90039D039 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
+		619A63AB29376B0C0084B8B3 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAF09291124350039D039 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		619A63AD29376B0C0084B8B3 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAF09291124350039D039 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		619A63AF29376B0C0084B8B3 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAF09291124350039D039 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		619A63B129376B0C0084B8B3 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAF09291124350039D039 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		619A63B329376B0C0084B8B3 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAF09291124350039D039 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		619A63B529376B0C0084B8B3 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAF09291124350039D039 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		619A63B729376B0D0084B8B3 /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAF09291124350039D039 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
+		};
+		619A63B929376B480084B8B3 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAEA4290D89280039D039 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		619A63BB29376B950084B8B3 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAEB6290DD4E00039D039 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		619A63BD29376B950084B8B3 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61AAAF28291274110039D039 /* XCRemoteSwiftPackageReference "NukeUI" */;
+			productName = NukeUI;
+		};
 		61AAAEA5290D89280039D039 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 61AAAEA4290D89280039D039 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;

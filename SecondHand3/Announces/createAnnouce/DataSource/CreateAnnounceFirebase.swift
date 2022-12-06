@@ -11,7 +11,7 @@ import Foundation
 protocol CreateAnnounceFirebaseProtocol {
     func uploadImageStorage(photosData: [Data]) async -> Result<[String], Error>
     func getuserUID() async ->Result<String, Error>
-    func addAnnounce(announce: Announce)
+    func addAnnounce(announce: Announce) -> Result<Bool, Error>
 }
 
 
@@ -32,7 +32,7 @@ class CreateAnnounceFirebase: CreateAnnounceFirebaseProtocol, FirebaseGeneralQue
 
     }
     
-    func addAnnounce(announce: Announce) {
-        CreateAnnounceFirebase.addCodableTypeToCollectionIdFirebaseGenerated(type: announce, collection: "Announces")
+    func addAnnounce(announce: Announce) -> Result<Bool, Error> {
+        return CreateAnnounceFirebase.addCodableTypeToCollectionIdFirebaseGenerated(type: announce, collection: "Announces")
     }
 }

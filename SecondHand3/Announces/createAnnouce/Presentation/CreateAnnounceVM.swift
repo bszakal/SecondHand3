@@ -11,8 +11,8 @@ import SwiftUI
 class CreateAnnounceVM: ObservableObject {
     
     
-    @Inject var fetcher: FirebaseCategoriesProtocol
-    @Inject var createAnnounce: CreateAnnounceProtocol
+    @Inject var fetcher: FirebaseCategoriesProtocol!
+    @Inject var createAnnounce: CreateAnnounceProtocol!
     
     @Published private(set) var categories = [Category]()
     
@@ -26,19 +26,18 @@ class CreateAnnounceVM: ObservableObject {
                 self.categories = success
             case .failure(let failure):
                 print(failure.localizedDescription)
-            }
-            
+            }            
         }
     }
     
-    func uploadAnnounce(title: String, description: String, price: Double, category: String, condition: String, deliveryType: String, address: String, images: [UIImage]) {
+    func uploadAnnounce(title: String, description: String, price: Double, category: String, condition: String, deliveryType: String, address: String, images: [UIImage]) async -> Result<Bool, Error> {
         
         let size = "XS"
         
         let ImgsAsData = images.compactMap{$0.jpegData(compressionQuality: 0.8)}
         
-        Task {
-            await createAnnounce.createAnnounce(title:title,
+        //Task {
+            return await createAnnounce.createAnnounce(title:title,
                                           description:description,
                                           price:price,
                                           category:category,
@@ -47,7 +46,7 @@ class CreateAnnounceVM: ObservableObject {
                                           deliveryType:deliveryType,
                                           address:address,
                                           images:ImgsAsData)
-        }
+        //}
         
     }
     

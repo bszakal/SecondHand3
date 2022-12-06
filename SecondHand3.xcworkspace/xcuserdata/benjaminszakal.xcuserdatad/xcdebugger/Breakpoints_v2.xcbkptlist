@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "1F242D1E-19BF-4551-9FB7-970B86F0F3CB"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BBB6CB1D-46AD-4A01-A90C-F138C575E770"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3Tests/AnnounceRepo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "spec()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "BBB6CB1D-46AD-4A01-A90C-F138C575E770 - ba9b3e1ca0aead65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in SecondHand3Tests.AnnounceRepoSpec.spec() -&gt; ()"
+                  moduleName = "SecondHand3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3Tests/AnnounceRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "BBB6CB1D-46AD-4A01-A90C-F138C575E770 - df18afa32e1cef0c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () async -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in SecondHand3Tests.AnnounceRepoSpec.spec() -&gt; ()"
+                  moduleName = "SecondHand3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3Tests/AnnounceRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D8A9582F-02E6-4D8D-97AC-27C0AEF0FE49"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3Tests/AnnounceRepo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "spec()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "D8A9582F-02E6-4D8D-97AC-27C0AEF0FE49 - df18afa32e1cef0c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () async -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in SecondHand3Tests.AnnounceRepoSpec.spec() -&gt; ()"
+                  moduleName = "SecondHand3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3Tests/AnnounceRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "D8A9582F-02E6-4D8D-97AC-27C0AEF0FE49 - 9ce94d1abc5ec175"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 () async -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in SecondHand3Tests.AnnounceRepoSpec.spec() -&gt; ()"
+                  moduleName = "SecondHand3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3Tests/AnnounceRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "D8A9582F-02E6-4D8D-97AC-27C0AEF0FE49 - 5655369611f46db0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) suspend resume partial function for closure #1 () async -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in SecondHand3Tests.AnnounceRepoSpec.spec() -&gt; ()"
+                  moduleName = "SecondHand3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3Tests/AnnounceRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "D8A9582F-02E6-4D8D-97AC-27C0AEF0FE49 - df18afa32e1cef6d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () async -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in SecondHand3Tests.AnnounceRepoSpec.spec() -&gt; ()"
+                  moduleName = "SecondHand3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3Tests/AnnounceRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "D8A9582F-02E6-4D8D-97AC-27C0AEF0FE49 - 9ce94d1abc5ec114"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 () async -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in SecondHand3Tests.AnnounceRepoSpec.spec() -&gt; ()"
+                  moduleName = "SecondHand3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3Tests/AnnounceRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "D8A9582F-02E6-4D8D-97AC-27C0AEF0FE49 - 5655369611f46dd1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) suspend resume partial function for closure #1 () async -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in SecondHand3Tests.AnnounceRepoSpec.spec() -&gt; ()"
+                  moduleName = "SecondHand3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3Tests/AnnounceRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "D8A9582F-02E6-4D8D-97AC-27C0AEF0FE49 - df18afa32e1cec88"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () async -&gt; () in closure #2 () -&gt; () in closure #1 () -&gt; () in SecondHand3Tests.AnnounceRepoSpec.spec() -&gt; ()"
+                  moduleName = "SecondHand3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3Tests/AnnounceRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "D8A9582F-02E6-4D8D-97AC-27C0AEF0FE49 - f1a7103f8997f0f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 () async -&gt; () in closure #2 () -&gt; () in closure #1 () -&gt; () in SecondHand3Tests.AnnounceRepoSpec.spec() -&gt; ()"
+                  moduleName = "SecondHand3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3Tests/AnnounceRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "D8A9582F-02E6-4D8D-97AC-27C0AEF0FE49 - 62a76af60e2cfd39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) suspend resume partial function for closure #1 () async -&gt; () in closure #2 () -&gt; () in closure #1 () -&gt; () in SecondHand3Tests.AnnounceRepoSpec.spec() -&gt; ()"
+                  moduleName = "SecondHand3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3Tests/AnnounceRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B5649C0-AB4D-4D7B-9842-7D92595A9F59"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3Tests/AnnounceRepo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "spec()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EDDA3A18-0C6D-4FE4-8EDA-1A37541E09E8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3Tests/AnnounceRepo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "spec()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "62408AB4-8E97-4F65-AAB4-CD08B20A627B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3/Utilities/DI/DIAssembler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD3C7B0D-FB27-4B12-AFCD-B7203C688933"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3Tests/FavouriteDomaine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "removeFromFavorite(favourite:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F609C71-9194-43A5-B41E-332EBFA5FD59"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3Tests/FavouriteDomaine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "addAnnounceToFavourite(favourite:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A611ADEF-7F51-41E8-A221-381816900C2A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3Tests/FavouriteDomaine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "getFavouriteForUser(userId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2579706-DF38-4221-A08B-BD333885E411"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "AddOrRemoveFromFavourite(announce:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E2579706-DF38-4221-A08B-BD333885E411 - ac7dc8067a5deee6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SecondHand3.FavouriteDomaine.AddOrRemoveFromFavourite(announce: SecondHand3.Announce) async -&gt; ()"
+                  moduleName = "SecondHand3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "E2579706-DF38-4221-A08B-BD333885E411 - a0f53939af4d3bd0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for SecondHand3.FavouriteDomaine.AddOrRemoveFromFavourite(announce: SecondHand3.Announce) async -&gt; ()"
+                  moduleName = "SecondHand3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "E2579706-DF38-4221-A08B-BD333885E411 - 84f627c6e2135dc7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) suspend resume partial function for SecondHand3.FavouriteDomaine.AddOrRemoveFromFavourite(announce: SecondHand3.Announce) async -&gt; ()"
+                  moduleName = "SecondHand3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9DD43FBB-4A4E-4CFF-A119-9B4019334EBA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "AddOrRemoveFromFavourite(announce:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94B1C1AB-F227-4EEA-BCE0-681584A19578"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "AddOrRemoveFromFavourite(announce:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "508EAB2E-866F-4A77-BF3D-B7BA541DE131"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "removeFromFavourite(announce:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "508EAB2E-866F-4A77-BF3D-B7BA541DE131 - 7902fa5ae20b14a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for SecondHand3.FavouriteDomaine.removeFromFavourite(announce: SecondHand3.Announce) async -&gt; ()"
+                  moduleName = "SecondHand3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "272">
+               </Location>
+               <Location
+                  uuid = "508EAB2E-866F-4A77-BF3D-B7BA541DE131 - 65492c106513575b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) await resume partial function for SecondHand3.FavouriteDomaine.removeFromFavourite(announce: SecondHand3.Announce) async -&gt; ()"
+                  moduleName = "SecondHand3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "508EAB2E-866F-4A77-BF3D-B7BA541DE131 - f4b9e802ab8d3564"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for SecondHand3.FavouriteDomaine.removeFromFavourite(announce: SecondHand3.Announce) async -&gt; ()"
+                  moduleName = "SecondHand3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "508EAB2E-866F-4A77-BF3D-B7BA541DE131 - d0a6b50a0683da0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for SecondHand3.FavouriteDomaine.removeFromFavourite(announce: SecondHand3.Announce) async -&gt; ()"
+                  moduleName = "SecondHand3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "184">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10A03A91-AB08-4F8B-A155-BB9DCF020B4B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "removeFromFavourite(announce:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49660A92-F1D6-4212-8902-EED5E38E60EE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "removeFromFavourite(announce:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E8920D08-7A42-4CA3-A950-4C4077BD591D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "removeFromFavourite(announce:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E8920D08-7A42-4CA3-A950-4C4077BD591D - f4b9e802ab8d35e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for SecondHand3.FavouriteDomaine.removeFromFavourite(announce: SecondHand3.Announce) async -&gt; ()"
+                  moduleName = "SecondHand3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "304">
+               </Location>
+               <Location
+                  uuid = "E8920D08-7A42-4CA3-A950-4C4077BD591D - 805ec24613962eeb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SecondHand3.Favourite) -&gt; Swift.Bool in SecondHand3.FavouriteDomaine.removeFromFavourite(announce: SecondHand3.Announce) async -&gt; ()"
+                  moduleName = "SecondHand3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D59CC238-E2F4-41B4-80E2-D3AEDBAB9677"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "removeFromFavourite(announce:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D59CC238-E2F4-41B4-80E2-D3AEDBAB9677 - f4b9e802ab8d35a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for SecondHand3.FavouriteDomaine.removeFromFavourite(announce: SecondHand3.Announce) async -&gt; ()"
+                  moduleName = "SecondHand3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "1068">
+               </Location>
+               <Location
+                  uuid = "D59CC238-E2F4-41B4-80E2-D3AEDBAB9677 - a062aaeba4ffb940"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for SecondHand3.FavouriteDomaine.removeFromFavourite(announce: SecondHand3.Announce) async -&gt; ()"
+                  moduleName = "SecondHand3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benjaminszakal/Documents/Developer_Hacking/SecondHand3Test/SecondHand3/Favourite/Logic/FavouriteDomaine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

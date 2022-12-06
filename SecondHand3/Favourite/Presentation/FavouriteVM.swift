@@ -23,9 +23,7 @@ class FavouriteVM: ObservableObject {
                 self?.favouriteAnnounces = newValue
             })
             .store(in: &cancellables)
-        
-       
-       
+ 
     }
     
     func getFavourites() {

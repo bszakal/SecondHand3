@@ -9,8 +9,6 @@ import Foundation
 
 protocol FavouriteDomaineProtocol {
     func getFavouriteAnnounce() async -> [Announce]
-    func addAnnounceToFavorite(announceID: String) async
-    func removeFromFavourite(announce: Announce) async
     func isAnnounceAFavourite(announce: Announce) async -> Bool
     var favourites: Published<[Announce]>.Publisher {get}
     func AddOrRemoveFromFavourite(announce: Announce) async
@@ -57,7 +55,7 @@ class FavouriteDomaine: FavouriteDomaineProtocol {
         
     }
     
-    func addAnnounceToFavorite(announceID: String) async {
+   private  func addAnnounceToFavorite(announceID: String) async {
         
         let resultUserID = await firebaseFavourite.getuserUID()
         switch resultUserID {
@@ -71,7 +69,7 @@ class FavouriteDomaine: FavouriteDomaineProtocol {
         }
     }
     
-    func removeFromFavourite(announce: Announce) async {
+    private func removeFromFavourite(announce: Announce) async {
         let resultUserID = await firebaseFavourite.getuserUID()
         switch resultUserID {
         case .success(let success):

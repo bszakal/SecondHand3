@@ -11,16 +11,16 @@ import Foundation
 
 protocol CreateAnnounceProtocol {
     
-    func createAnnounce(title: String, description: String, price: Double, category: String, size: String, condition: String, deliveryType: String, address: String, images: [Data]) async
+    func createAnnounce(title: String, description: String, price: Double, category: String, size: String, condition: String, deliveryType: String, address: String, images: [Data]) async -> Result<Bool, Error>
 }
 
 class CreateAnnounce: CreateAnnounceProtocol {
     
     
-    @Inject var createAnnounceFirebase: CreateAnnounceFirebaseProtocol
+    @Inject var createAnnounceFirebase: CreateAnnounceFirebaseProtocol!
     
     
-    func createAnnounce(title: String, description: String, price: Double, category: String, size: String, condition: String, deliveryType: String, address: String, images: [Data]) async {
+    func createAnnounce(title: String, description: String, price: Double, category: String, size: String, condition: String, deliveryType: String, address: String, images: [Data]) async -> Result<Bool, Error>  {
         
         //if user is not logged In then abort
         var userID = ""
@@ -31,7 +31,7 @@ class CreateAnnounce: CreateAnnounceProtocol {
             userID = success
         case .failure(let failure):
             print(failure.localizedDescription)
-            return
+            return .failure(failure)
         }
     
         // upload data image to firestorage -> get urls for image -> Upload complete announce
@@ -42,11 +42,11 @@ class CreateAnnounce: CreateAnnounceProtocol {
                 
                 let announce = Announce(title: title, description: description, price: price, category: category, size: size, condition: condition, deliveryType: deliveryType, address: address, userUID: userID, imageRefs: success)
                 
-                self.createAnnounceFirebase.addAnnounce(announce: announce)
+               return self.createAnnounceFirebase.addAnnounce(announce: announce)
                 
             case .failure(let failure):
                 print(failure.localizedDescription)
-                return
+                return .failure(failure)
             }
             
         

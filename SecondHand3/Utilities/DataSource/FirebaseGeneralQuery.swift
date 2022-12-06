@@ -23,15 +23,17 @@ extension FirebaseGeneralQuery {
     }
     
     
-   static func addCodableTypeToCollectionIdFirebaseGenerated<T:Codable>(type: T, collection: String) {
+   static func addCodableTypeToCollectionIdFirebaseGenerated<T:Codable>(type: T, collection: String) -> Result<Bool, Error> {
         
         let firestore = Firestore.firestore()
         let collection = firestore.collection(collection)
     
         do{
             let _ = try collection.addDocument(from: type)
+            return .success(true)
         } catch {
             print(error)
+            return .failure(error)
         }
     }
     

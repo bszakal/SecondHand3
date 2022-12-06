@@ -78,7 +78,9 @@ struct CreateAnnounceStartView2: View {
                                 
                             } else if phaseNbre == 6 {
                                 Button("Create Announce") {
-                                    createAnnounceVM.uploadAnnounce(title: title, description: descrpition, price: price!, category: selectedCategory, condition: condition, deliveryType: deliveryType, address: fullAddress, images: uiPhotosArray)
+                                    Task{
+                                        await createAnnounceVM.uploadAnnounce(title: title, description: descrpition, price: price!, category: selectedCategory, condition: condition, deliveryType: deliveryType, address: fullAddress, images: uiPhotosArray)
+                                    }
                                 }
                             }
                         }

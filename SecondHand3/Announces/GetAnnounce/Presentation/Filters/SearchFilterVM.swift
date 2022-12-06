@@ -11,7 +11,7 @@ import SwiftUI
 class SearchFilterVM: ObservableObject {
     
     
-    @Inject var fetcher: FirebaseCategoriesProtocol
+    @Inject var fetcher: FirebaseCategoriesProtocol!
     
     @Published private(set) var categories = [Category]()
     

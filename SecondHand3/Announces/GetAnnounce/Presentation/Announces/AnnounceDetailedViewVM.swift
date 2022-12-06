@@ -12,16 +12,14 @@ import Swinject
 class AnnounceDetailedVM: ObservableObject {
     
     
-    @Inject var favouriteDomaine: FavouriteDomaineProtocol
-    @Inject var getUserDomaine: GetUserProfileProtocol
+    @Inject var favouriteDomaine: FavouriteDomaineProtocol!
+    @Inject var getUserDomaine: GetUserProfileProtocol!
     
     @Published private(set) var isAFavourite: Bool = false
     @Published private(set) var userProfileForAnnounce = UserProfile(id: "", emailAddress: "")
     @Published private(set) var currentUserProfile = UserProfile(id: "", emailAddress: "")
     
-    init() {
-        
-    }
+
     func isAFavourite(announce: Announce) {
         Task {
             self.isAFavourite = await favouriteDomaine.isAnnounceAFavourite(announce:announce)

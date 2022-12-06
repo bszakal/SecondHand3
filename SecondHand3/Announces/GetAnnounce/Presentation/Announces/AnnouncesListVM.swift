@@ -19,13 +19,17 @@ class AnnouncesListVM: ObservableObject {
     @Published private(set) var useTempData = false
     @Published private(set) var tempData = [Announce]()
     
-    @Inject var announceRepo: AnnounceRepoProtocol
-    @Inject var favouriteDomaine: FavouriteDomaineProtocol
+    @Inject var announceRepo: AnnounceRepoProtocol!
+    @Inject var favouriteDomaine: FavouriteDomaineProtocol!
+
     
     init() {
         useTempData = true
         self.tempData = loadTempData()
-        announceRepo.annoncePublisher
+    }
+    
+    func suscribeToAnnounceRepoArray() {
+        self.announceRepo.annoncePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] NewValue in
                 self?.announces = NewValue

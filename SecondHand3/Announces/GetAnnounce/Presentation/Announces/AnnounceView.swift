@@ -58,6 +58,7 @@ struct AnnounceView: View {
             .padding(.horizontal)
 
         .onAppear{
+            announcesListVM.suscribeToAnnounceRepoArray()
             // due to filtering limitation with Firebase Query there is no pagination if the search is filtered hence why different function
             if isSearchFiltered == true {
                 announcesListVM.getAnnouncesFiltered(searchText: searchText, priceStart: minPrice, priceEnd: maxPrice, category: category, startDate: noOlderThanDate)

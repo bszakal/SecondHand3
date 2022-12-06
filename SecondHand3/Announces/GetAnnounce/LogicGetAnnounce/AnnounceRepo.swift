@@ -16,7 +16,7 @@ protocol AnnounceRepoProtocol{
 
 class AnnounceRepo: AnnounceRepoProtocol {
     
-    @Inject var firebaseAnnouce: FirebaseAnnounceProtocol
+    @Inject var firebaseAnnouce: FirebaseAnnounceProtocol!
     
     @Published private(set) var announces = [Announce]()
     var annoncePublisher: Published<[Announce]>.Publisher{$announces}
@@ -67,6 +67,7 @@ class AnnounceRepo: AnnounceRepoProtocol {
     }
     
     func getAnnouncesFiltered(text: String?, priceStart: Double, priceEnd: Double, category: String?, startDate: Date?, myAnnounceOnly: Bool, announceID: String?) async ->Result<[Announce], Error>{
+      
         let result = await firebaseAnnouce.getAnnounces(lastDocQuery: nil, limit: 1000)
         
         var tempResult = [Announce]()
